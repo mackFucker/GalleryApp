@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol GalleryAllPhotosViewController: AnyObject {
     
 }
@@ -30,9 +29,10 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 0.5
+        layout.minimumLineSpacing = 0.5
         let collectionView = UICollectionView(frame: view.bounds,
                                               collectionViewLayout: layout)
-        collectionView.backgroundColor = .cyan
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self,
@@ -45,7 +45,8 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        navigationController?.pushViewController(ViewController(), animated: true)
+        navigationController?.pushViewController(GalleryFullScreenViewController(),
+                                                 animated: true)
     }
 }
 
@@ -75,17 +76,19 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 85,
-                      height: 85)
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let size = view.frame.width / 4 - 1
+        return CGSize(width: size,
+                      height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 5,
-                            left: 5,
-                            bottom: 5,
-                            right: 5)
+        return UIEdgeInsets(top: 1,
+                            left: 1,
+                            bottom: 1,
+                            right: 1)
     }
 }
