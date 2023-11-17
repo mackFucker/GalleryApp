@@ -24,7 +24,6 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    
     private lazy var collectionView: UICollectionView = {        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
@@ -35,8 +34,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                                               collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "ffff")
+        collectionView.register(AllPhotosCell.self,
+                                forCellWithReuseIdentifier: AllPhotosCell.identifier)
         return collectionView
     }()
 }
@@ -54,9 +53,9 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ffff",
-                                                 for: indexPath as IndexPath)
-        cell.contentView.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllPhotosCell.identifier,
+                                                 for: indexPath as IndexPath) as! AllPhotosCell
+        cell.setupPhoto("Wallpaper-New-York-Sky--T_bigapple2_0")
         return cell
     }
     
@@ -76,7 +75,6 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let size = view.frame.width / 4 - 1
         return CGSize(width: size,
                       height: size)

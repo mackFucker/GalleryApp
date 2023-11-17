@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryFullScreenViewController: UIViewController {
+final class GalleryFullScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,5 +18,4 @@ class GalleryFullScreenViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false,
                                                      animated: animated)
     }
-    
 }
