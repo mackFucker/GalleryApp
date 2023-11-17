@@ -12,6 +12,8 @@ protocol GalleryAllPhotosViewController: AnyObject {
 }
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
+    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0" ]
+    
     private var presenter: GalleryAllPhotosPresenter?
     
     override func viewDidLoad() {
@@ -24,9 +26,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    private lazy var collectionView: UICollectionView = {        
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 0.5
         layout.minimumLineSpacing = 0.5
@@ -44,7 +45,8 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        navigationController?.pushViewController(GalleryFullScreenViewController(),
+        navigationController?.pushViewController(GalleryFullScreenViewControllerImpl(mockDataArray: mockDataArray,
+                                                                                     index: CGFloat(indexPath.row)),
                                                  animated: true)
     }
 }
@@ -54,20 +56,16 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllPhotosCell.identifier,
-                                                 for: indexPath as IndexPath) as! AllPhotosCell
-        cell.setupPhoto("Wallpaper-New-York-Sky--T_bigapple2_0")
+                                                      for: indexPath as IndexPath) as! AllPhotosCell
+        cell.setupPhoto(mockDataArray[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         
-        return 50
+        return mockDataArray.count
     }
-}
-
-extension GalleryAllPhotosViewControllerImpl: GalleryAllPhotosViewController {
-    
 }
 
 extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout {
@@ -89,4 +87,8 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                             bottom: 1,
                             right: 1)
     }
+}
+
+extension GalleryAllPhotosViewControllerImpl: GalleryAllPhotosViewController {
+    
 }
