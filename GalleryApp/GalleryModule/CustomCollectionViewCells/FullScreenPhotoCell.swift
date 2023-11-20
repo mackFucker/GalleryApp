@@ -21,10 +21,9 @@ final class FullScreenPhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private lazy var zoomScroll: UIScrollView = {
         let zoomScroll = UIScrollView(frame: contentView.frame)
-//        zoomScroll.contentInset = UIEdgeInsets(top: -60, left: 0, bottom: -60, right: 0)
         zoomScroll.showsVerticalScrollIndicator = false
         zoomScroll.showsHorizontalScrollIndicator = false
         zoomScroll.delegate = self
@@ -49,7 +48,7 @@ final class FullScreenPhotoCell: UICollectionViewCell {
         zoomScroll.addSubview(imageView)
         
         imageView.frame = zoomScroll.bounds
-        zoomScroll.contentSize = zoomScroll.bounds.size        
+        zoomScroll.contentSize = zoomScroll.bounds.size
     }
     
     private func centerScrollViewContents() {
@@ -69,6 +68,12 @@ final class FullScreenPhotoCell: UICollectionViewCell {
         }
         
         imageView.frame = contentsFrame
+    }
+    
+    func diactivateZoom() {
+        if zoomIsActive {
+            zoomScroll.setZoomScale(-1, animated: true)
+        }
     }
 }
 
@@ -148,7 +153,6 @@ extension FullScreenPhotoCell: UIScrollViewDelegate {
             }
         } else {
             scrollView.contentInset = .zero
-//            scrollView.contentInset = UIEdgeInsets(top: -88, left: 0, bottom: -44, right: 0)
         }
     }
 }

@@ -34,7 +34,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         navigationController?.setNavigationBarHidden(false,
                                                      animated: animated)
     }
-
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -90,8 +90,15 @@ extension GalleryFullScreenViewControllerImpl: UICollectionViewDelegateFlowLayou
         
         let width = view.bounds.width
         let height = view.bounds.height
-
+        
         return CGSize(width: width,
                       height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didEndDisplaying cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        (collectionView.cellForItem(at: indexPath) as! FullScreenPhotoCell).diactivateZoom()
     }
 }
