@@ -17,7 +17,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         
         self.mockDataArray = mockDataArray
         let widht = view.frame.width
-        collectionView.contentOffset.x = widht * index
+        collectionView.contentOffset.x = widht * index + ((index - 1) * 20) + 20
     }
     
     required init?(coder: NSCoder) {
@@ -26,7 +26,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         view.addSubview(collectionView)
         setTransparentNavigationbar()
     }
@@ -39,15 +39,20 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 20
+        let collectionViewFrame = CGRect(origin: view.frame.origin,
+                                         size: CGSize(width: view.frame.width + 20,
+                                                      height: view.frame.height))
 
-        let collectionView = UICollectionView(frame: view.bounds,
+        let collectionView = UICollectionView(frame: collectionViewFrame,
                                               collectionViewLayout: layout)
+        collectionView.contentInset =  UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = .red
+
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isPagingEnabled = true
         collectionView.register(FullScreenPhotoCell.self,
                                 forCellWithReuseIdentifier: FullScreenPhotoCell.identifier)
         return collectionView
@@ -82,19 +87,10 @@ extension GalleryFullScreenViewControllerImpl: UICollectionViewDelegateFlowLayou
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = view.frame.width
-        let height = view.frame.height
+        let width = view.bounds.width
+        let height = view.bounds.height
+
         return CGSize(width: width,
                       height: height)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        insetForSectionAt section: Int) -> UIEdgeInsets {
-//        
-//        return UIEdgeInsets(top: 1,
-//                            left: 1,
-//                            bottom: 1,
-//                            right: 1)
-//    }
 }
