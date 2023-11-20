@@ -26,7 +26,6 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         view.addSubview(collectionView)
         setTransparentNavigationbar()
     }
@@ -35,7 +34,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         navigationController?.setNavigationBarHidden(false,
                                                      animated: animated)
     }
-    
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -43,15 +42,16 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         let collectionViewFrame = CGRect(origin: view.frame.origin,
                                          size: CGSize(width: view.frame.width + 20,
                                                       height: view.frame.height))
-
+        
         let collectionView = UICollectionView(frame: collectionViewFrame,
                                               collectionViewLayout: layout)
+        collectionView.contentInsetAdjustmentBehavior = .automatic
         collectionView.contentInset =  UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .red
-
+        
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(FullScreenPhotoCell.self,
                                 forCellWithReuseIdentifier: FullScreenPhotoCell.identifier)
@@ -59,25 +59,26 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     }()
     
     private func setTransparentNavigationbar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-
-        navigationController?.navigationBar.barTintColor = .clear
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        navigationController?.navigationBar.standardAppearance = appearance
     }
 }
 
 extension GalleryFullScreenViewControllerImpl: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        mockDataArray.count
+        
+        return mockDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FullScreenPhotoCell.identifier,
                                                       for: indexPath as IndexPath) as! FullScreenPhotoCell
         cell.setupPhoto(mockDataArray[indexPath.row])
+        cell.frame.origin.y = collectionView.bounds.origin.y
         return cell
     }
 }

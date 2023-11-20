@@ -12,7 +12,7 @@ protocol GalleryAllPhotosViewController: AnyObject {
 }
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
-    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0" ]
+    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault" ]
     
     private var presenter: GalleryAllPhotosPresenter?
     

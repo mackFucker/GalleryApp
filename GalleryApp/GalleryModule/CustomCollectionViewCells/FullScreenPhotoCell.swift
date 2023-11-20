@@ -24,7 +24,7 @@ final class FullScreenPhotoCell: UICollectionViewCell {
 
     private lazy var zoomScroll: UIScrollView = {
         let zoomScroll = UIScrollView(frame: contentView.frame)
-        zoomScroll.contentInset = UIEdgeInsets(top: -88, left: 0, bottom: -44, right: 0)
+//        zoomScroll.contentInset = UIEdgeInsets(top: -60, left: 0, bottom: -60, right: 0)
         zoomScroll.showsVerticalScrollIndicator = false
         zoomScroll.showsHorizontalScrollIndicator = false
         zoomScroll.delegate = self
@@ -147,7 +147,8 @@ extension FullScreenPhotoCell: UIScrollViewDelegate {
                 
             }
         } else {
-            scrollView.contentInset = UIEdgeInsets(top: -88, left: 0, bottom: -44, right: 0)
+            scrollView.contentInset = .zero
+//            scrollView.contentInset = UIEdgeInsets(top: -88, left: 0, bottom: -44, right: 0)
         }
     }
 }
