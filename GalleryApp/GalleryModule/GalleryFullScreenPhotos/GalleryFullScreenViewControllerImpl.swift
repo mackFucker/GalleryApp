@@ -46,11 +46,11 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         let collectionView = UICollectionView(frame: collectionViewFrame,
                                               collectionViewLayout: layout)
         collectionView.contentInsetAdjustmentBehavior = .automatic
-        collectionView.contentInset =  UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.contentInset =  UIEdgeInsets(top: 0, left: 0,
+                                                    bottom: 0, right: 20)
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .red
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(FullScreenPhotoCell.self,
