@@ -18,8 +18,11 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden = true
+        
+        
         presenter = GalleryAllPhotosPresenterImpl(view: self)
         view.addSubview(collectionView)
+        setupCollectionViewLayer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +42,47 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                                 forCellWithReuseIdentifier: AllPhotosCell.identifier)
         return collectionView
     }()
+    
+    private func setupCollectionViewLayer() {
+        let itemSize = view.frame.width / 4
+        let firstGradient = createGradientLayer()
+        firstGradient.frame = CGRect(x: view.frame.width / 20,
+                                     y: view.frame.height * 0.05,
+                                     width: itemSize,
+                                     height: itemSize)
+        
+        let secondGradient = createGradientLayer()
+        secondGradient.frame = CGRect(x: view.frame.width - (itemSize / 2),
+                                      y: view.frame.height / 2 - itemSize,
+                                      width: itemSize,
+                                      height: itemSize)
+        
+        let thirdGradient = createGradientLayer()
+        thirdGradient.frame = CGRect(x: view.frame.width / 20,
+                                     y: view.frame.height * 0.8,
+                                     width: itemSize,
+                                     height: itemSize)
+        
+        
+        
+        collectionView.layer.addSublayer(firstGradient)
+        collectionView.layer.addSublayer(secondGradient)
+        collectionView.layer.addSublayer(thirdGradient)
+        
+    }
+    
+    private func createGradientLayer() -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.cornerRadius = 10
+        gradient.colors = [
+            UIColor.warmPink.cgColor,
+            UIColor.softOrange.cgColor,
+            UIColor.lightYellow.cgColor
+        ]
+        gradient.locations = [0, 0.25, 1]
+        return gradient
+    }
 }
 
 extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
@@ -63,8 +107,8 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        
-        return mockDataArray.count
+        return 0
+        //        return mockDataArray.count
     }
 }
 

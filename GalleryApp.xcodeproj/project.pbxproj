@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */; };
+		8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC66C2B0D515800990492 /* UIColor + .swift */; };
 		8F66C92E2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */; };
 		8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */; };
 		8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
+		8F5BC66C2B0D515800990492 /* UIColor + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + .swift"; sourceTree = "<group>"; };
 		8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFullScreenViewControllerImpl.swift; sourceTree = "<group>"; };
 		8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
 		8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosViewControllerImpl.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				8FA55FB92AFD00EB007FEF74 /* Assets.xcassets */,
 				8FA55FB02AFD00EA007FEF74 /* AppDelegate.swift */,
 				8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */,
+				8F5BC66C2B0D515800990492 /* UIColor + .swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				8F66C92E2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift in Sources */,
 				8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */,
 				8FA09D3B2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift in Sources */,
+				8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */,
 				8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */,
 				8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */,
 				8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */,
@@ -347,6 +351,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,6 +379,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
