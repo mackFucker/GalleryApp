@@ -12,7 +12,12 @@ protocol GalleryAllPhotosViewController: AnyObject {
 }
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
-    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault" ]
+    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault" ]
     
     private var presenter: GalleryAllPhotosPresenter?
     
@@ -43,11 +48,11 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .lightYellow
-        let layer = CustomGradientLayerBackground(view: view,
-                                                 type: .GalleryAllPhotosViewControllerImplBackground)
+        let layer = CustomGradientLayerBackgroundAppPhotos(view: view)
         view.layer.addSublayer(layer)
         view.addSubview(collectionView)
         navigationController?.isNavigationBarHidden = true
+//        layer.animate()
     }
 }
 
@@ -73,7 +78,7 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-    
+
         return mockDataArray.count
     }
 }

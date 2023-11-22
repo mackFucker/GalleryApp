@@ -10,7 +10,7 @@
 		8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */; };
 		8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC66C2B0D515800990492 /* UIColor + .swift */; };
 		8F5BC6702B0DF0DD00990492 /* CustomGradientLayerSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC66F2B0DF0DD00990492 /* CustomGradientLayerSpot.swift */; };
-		8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackground.swift */; };
+		8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackgroundAppPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackgroundAppPhotos.swift */; };
 		8F66C92E2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */; };
 		8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */; };
 		8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */; };
@@ -20,13 +20,14 @@
 		8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */; };
 		8FA55FBA2AFD00EB007FEF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA55FB92AFD00EB007FEF74 /* Assets.xcassets */; };
 		8FA55FBD2AFD00EB007FEF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA55FBB2AFD00EB007FEF74 /* LaunchScreen.storyboard */; };
+		8FFF2CFD2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF2CFC2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
 		8F5BC66C2B0D515800990492 /* UIColor + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + .swift"; sourceTree = "<group>"; };
 		8F5BC66F2B0DF0DD00990492 /* CustomGradientLayerSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerSpot.swift; sourceTree = "<group>"; };
-		8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackground.swift; sourceTree = "<group>"; };
+		8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackgroundAppPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackgroundAppPhotos.swift; sourceTree = "<group>"; };
 		8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFullScreenViewControllerImpl.swift; sourceTree = "<group>"; };
 		8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
 		8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosViewControllerImpl.swift; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		8FA55FB92AFD00EB007FEF74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FA55FBC2AFD00EB007FEF74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FA55FBE2AFD00EB007FEF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FFF2CFC2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				8F5BC66F2B0DF0DD00990492 /* CustomGradientLayerSpot.swift */,
-				8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackground.swift */,
+				8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackgroundAppPhotos.swift */,
+				8FFF2CFC2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift */,
 			);
 			path = BackgroundGradientSpots;
 			sourceTree = "<group>";
@@ -206,10 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FFF2CFD2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift in Sources */,
 				8F66C92E2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift in Sources */,
 				8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */,
 				8F5BC6702B0DF0DD00990492 /* CustomGradientLayerSpot.swift in Sources */,
-				8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackground.swift in Sources */,
+				8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackgroundAppPhotos.swift in Sources */,
 				8FA09D3B2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift in Sources */,
 				8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */,
 				8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */,
