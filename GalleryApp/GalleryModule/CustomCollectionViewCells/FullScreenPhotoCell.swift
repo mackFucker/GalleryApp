@@ -43,7 +43,6 @@ final class FullScreenPhotoCell: UICollectionViewCell {
     }
     
     private func setup() {
-        contentView.backgroundColor = .systemBackground
         contentView.addSubview(zoomScroll)
         zoomScroll.addSubview(imageView)
         

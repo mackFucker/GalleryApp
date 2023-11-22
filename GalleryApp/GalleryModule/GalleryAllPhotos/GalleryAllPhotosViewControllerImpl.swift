@@ -43,7 +43,9 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .lightYellow
-        view.layer.addSublayer(CustomGradientLayerBackground(view: view))
+        let layer = CustomGradientLayerBackground(view: view,
+                                                 type: .GalleryAllPhotosViewControllerImplBackground)
+        view.layer.addSublayer(layer)
         view.addSubview(collectionView)
         navigationController?.isNavigationBarHidden = true
     }

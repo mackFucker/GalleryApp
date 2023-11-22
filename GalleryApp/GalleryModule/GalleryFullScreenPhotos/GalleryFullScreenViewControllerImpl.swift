@@ -33,6 +33,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false,
                                                      animated: animated)
+        navigationController?.navigationBar.tintColor = .softGreen
     }
     
     private lazy var collectionView: UICollectionView = {
