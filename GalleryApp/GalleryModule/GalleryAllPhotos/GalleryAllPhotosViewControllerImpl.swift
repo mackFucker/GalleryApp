@@ -29,8 +29,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 0.5
-        layout.minimumLineSpacing = 0.5
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 1
         let collectionView = UICollectionView(frame: view.bounds,
                                               collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -42,8 +42,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     }()
     
     private func setupView() {
-        view.backgroundColor = .systemBackground
-        view.layer.addSublayer(CustomGradientLayer(view: view))
+        view.backgroundColor = .lightYellow
+        view.layer.addSublayer(CustomGradientLayerBackground(view: view))
         view.addSubview(collectionView)
         navigationController?.isNavigationBarHidden = true
     }
@@ -71,8 +71,8 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 0
-//        return mockDataArray.count
+    
+        return mockDataArray.count
     }
 }
 
@@ -81,7 +81,7 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = view.frame.width / 4 - 1
+        let size = view.frame.width / 4 - 2 
         return CGSize(width: size,
                       height: size)
     }
