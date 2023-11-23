@@ -116,7 +116,7 @@ final class LoginViewControllerImpl: UIViewController {
         
         if  check.validField(loginTextField),
             check.validField(passwordTextField)
-           {
+        {
             if passwordTextField.text == "111" && loginTextField.text == "111"{
                 navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
                                                          animated: true)
@@ -124,9 +124,7 @@ final class LoginViewControllerImpl: UIViewController {
             else{
                 print("error")
             }
-        }
-        print("login")
-        
+        }        
     }
     
     @objc
@@ -158,20 +156,29 @@ final class LoginViewControllerImpl: UIViewController {
 extension LoginViewControllerImpl: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         switch textField {
-            case loginTextField:
-                check.validField(loginTextField)
-            default:
-                check.validField(passwordTextField)
+        case loginTextField:
+            check.validField(loginTextField)
+        default:
+            check.validField(passwordTextField)
         }
         
+        UIView.animate(withDuration: 0.2, delay: 0.2) {
+            if self.loginTextField.backgroundColor == .softGreen
+            && self.passwordTextField.backgroundColor == .softGreen {
+                self.loginButton.backgroundColor = .softGreen
+            }
+            else {
+                self.loginButton.backgroundColor = .clear
+            }
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-            case loginTextField:
-                passwordTextField.becomeFirstResponder()
-            default:
-                login()
+        case loginTextField:
+            passwordTextField.becomeFirstResponder()
+        default:
+            login()
         }
         return true
     }
