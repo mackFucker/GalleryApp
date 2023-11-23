@@ -8,6 +8,7 @@
 import UIKit
 
 final class LoginViewControllerImpl: UIViewController {
+    private let check = CheckField.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,9 +113,20 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc
     private func login() {
+        
+        if  check.validField(loginTextField),
+            check.validField(passwordTextField)
+           {
+            if passwordTextField.text == "111" && loginTextField.text == "111"{
+                navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
+                                                         animated: true)
+            }
+            else{
+                print("error")
+            }
+        }
         print("login")
-        navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
-                                                 animated: true)
+        
     }
     
     @objc
@@ -144,6 +156,16 @@ final class LoginViewControllerImpl: UIViewController {
 }
 
 extension LoginViewControllerImpl: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        switch textField {
+            case loginTextField:
+                check.validField(loginTextField)
+            default:
+                check.validField(passwordTextField)
+        }
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
             case loginTextField:
