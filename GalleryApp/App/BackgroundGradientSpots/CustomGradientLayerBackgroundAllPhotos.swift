@@ -7,15 +7,20 @@
 
 import UIKit
 
-
-final class CustomGradientLayerBackgroundAppPhotos: CustomGradientLayerBackground {
+final class CustomGradientLayerBackgroundAllPhotos: CALayer, CustomGradientLayerBackground {
+    var itemSize: CGFloat!
+    var view: UIView
+    
     var firstGradient: CustomGradientLayerSpot!
     var secondGradient: CustomGradientLayerSpot!
     var thirdGradient: CustomGradientLayerSpot!
     
-    override init(view: UIView) {
-        super.init(view: view)
+    init(view: UIView) {
+        self.itemSize = view.frame.width
+        self.view = view
         
+        super.init()
+
         firstGradient = CustomGradientLayerSpot(locations: [0.1, 0.5, 1])
         secondGradient = CustomGradientLayerSpot(locations: [0.1, 0.5, 1])
         thirdGradient = CustomGradientLayerSpot(locations: [0.1, 0.5, 1])
@@ -27,7 +32,7 @@ final class CustomGradientLayerBackgroundAppPhotos: CustomGradientLayerBackgroun
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayerBackground(view: UIView) {
+    func setupLayerBackground(view: UIView) {
       
         firstGradient.frame = CGRect(x: itemSize / -2.5,
                                      y: -350,
@@ -43,11 +48,7 @@ final class CustomGradientLayerBackgroundAppPhotos: CustomGradientLayerBackgroun
                                      y: view.frame.height + 350,
                                      width: itemSize,
                                      height: itemSize)
-        
-        setupBlurredLayer(layer: firstGradient)
-        setupBlurredLayer(layer: secondGradient)
-        setupBlurredLayer(layer: thirdGradient)
-        
+        firstGradient.accessibilityTraits = .updatesFrequently
         self.addSublayer(firstGradient)
         self.addSublayer(secondGradient)
         self.addSublayer(thirdGradient)
@@ -68,7 +69,7 @@ final class CustomGradientLayerBackgroundAppPhotos: CustomGradientLayerBackgroun
                                      height: itemSize)
     }
     
-//    func animate() {
+    func animate() {
 //        let animation = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) {
 //            self.firstGradient.frame = CGRect(x: self.itemSize / -2.5,
 //                                              y: self.view.frame.height * -0.15,
@@ -87,6 +88,6 @@ final class CustomGradientLayerBackgroundAppPhotos: CustomGradientLayerBackgroun
 //        }
 //        
 //        animation.startAnimation()
-//    }
+    }
 }
 

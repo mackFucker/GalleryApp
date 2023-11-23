@@ -16,8 +16,8 @@ final class CustomGradientLayerSpot: CAGradientLayer {
         
         self.colors = [
             UIColor.warmPink.cgColor,
-            UIColor.softOrange.cgColor,
-            UIColor.lightYellow.cgColor
+            UIColor.warmPink.cgColor,
+            UIColor.white.cgColor
         ]
         self.locations = locations
         self.startPoint = CGPoint(x: 0.5, y: 0.5)

@@ -12,6 +12,8 @@ extension UIColor {
     static let softOrange = UIColor(hex: "#FFD6A5")
     static let lightYellow = UIColor(hex: "#FFFEC4")
     static let softGreen = UIColor(hex: "#CBFFA9")
+    
+    static let lightYellowWithAlpha = UIColor(red: 1.0, green: 1.0, blue: 0.94, alpha: 1)
 }
 
 extension UIColor {

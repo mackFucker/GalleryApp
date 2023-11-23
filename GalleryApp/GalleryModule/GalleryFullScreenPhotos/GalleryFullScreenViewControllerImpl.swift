@@ -14,7 +14,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
          index: CGFloat) {
         
         super.init(nibName: nil, bundle: nil)
-        
+
         self.mockDataArray = mockDataArray
         let widht = view.frame.width
         collectionView.contentOffset.x = widht * index + ((index - 1) * 20) + 20
@@ -31,9 +31,8 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false,
-                                                     animated: animated)
-        navigationController?.navigationBar.tintColor = .softGreen
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .warmPink
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -49,7 +48,7 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .automatic
         collectionView.contentInset =  UIEdgeInsets(top: 0, left: 0,
                                                     bottom: 0, right: 20)
-        collectionView.backgroundColor = .lightYellow
+        collectionView.backgroundColor = .white
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self

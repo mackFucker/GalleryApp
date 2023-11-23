@@ -17,18 +17,26 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                          "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
                          "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
                          "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
+                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
                          "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault" ]
     
     private var presenter: GalleryAllPhotosPresenter?
     
+    
     override func viewDidLoad() {
         
+        setupNavigationbar()
         setupView()
         presenter = GalleryAllPhotosPresenterImpl(view: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -47,12 +55,25 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     }()
     
     private func setupView() {
-        view.backgroundColor = .lightYellow
-        let layer = CustomGradientLayerBackgroundAppPhotos(view: view)
+        view.backgroundColor = .white
+        let layer = CustomGradientLayerBackgroundAllPhotos(view: view)
+        
         view.layer.addSublayer(layer)
         view.addSubview(collectionView)
-        navigationController?.isNavigationBarHidden = true
-//        layer.animate()
+    }
+    
+    private func setupNavigationbar() {
+        let button = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(openAccountInfo))
+        button.tintColor = .warmPink
+        navigationController?.navigationBar.topItem?.rightBarButtonItems = [button]
+    }
+
+    @objc
+    private func openAccountInfo() {
+        print("openAccountInfo")
     }
 }
 
