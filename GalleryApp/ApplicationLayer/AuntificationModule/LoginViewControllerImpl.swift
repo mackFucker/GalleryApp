@@ -128,7 +128,6 @@ final class LoginViewControllerImpl: UIViewController {
     private lazy var stack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [registrationButton, loginButton])
         stack.axis = .horizontal
-        
         stack.spacing = 25
         stack.distribution = .fillEqually
         stack.alignment = .center
@@ -143,7 +142,7 @@ final class LoginViewControllerImpl: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(stack)
         
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
     }
     
     @objc

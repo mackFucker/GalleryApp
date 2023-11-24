@@ -34,9 +34,15 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         
-        setupNavigationbar()
         setupView()
         presenter = GalleryAllPhotosPresenterImpl(view: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        setupNavigationbar()
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -67,9 +73,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(openAccountInfo))
-//        button.tintColor = .warmPink
+        button.tintColor = .warmPink
         navigationController?.navigationBar.topItem?.rightBarButtonItem = button
-        print(navigationController?.navigationBar.topItem?.rightBarButtonItem)
         self.navigationItem.hidesBackButton = true
     }
 
