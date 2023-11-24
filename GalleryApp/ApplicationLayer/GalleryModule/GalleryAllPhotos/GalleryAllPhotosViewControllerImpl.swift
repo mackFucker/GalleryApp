@@ -67,8 +67,10 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(openAccountInfo))
-        button.tintColor = .warmPink
-        navigationController?.navigationBar.topItem?.rightBarButtonItems = [button]
+//        button.tintColor = .warmPink
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = button
+        print(navigationController?.navigationBar.topItem?.rightBarButtonItem)
+        self.navigationItem.hidesBackButton = true
     }
 
     @objc

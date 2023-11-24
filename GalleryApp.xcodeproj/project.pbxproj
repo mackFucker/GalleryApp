@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F18D7532B109D130029950F /* Token.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F18D7522B109D130029950F /* Token.ttf */; };
 		8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */; };
 		8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC66C2B0D515800990492 /* UIColor + .swift */; };
 		8F5BC6702B0DF0DD00990492 /* CustomGradientLayerSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC66F2B0DF0DD00990492 /* CustomGradientLayerSpot.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F18D7522B109D130029950F /* Token.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Token.ttf; path = ../../../../../../../Downloads/Token/Token.ttf; sourceTree = "<group>"; };
 		8F29770F2B079DAD00B42397 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
 		8F5BC66C2B0D515800990492 /* UIColor + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + .swift"; sourceTree = "<group>"; };
 		8F5BC66F2B0DF0DD00990492 /* CustomGradientLayerSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerSpot.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F18D74F2B10906E0029950F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8F18D7522B109D130029950F /* Token.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8F5BC66E2B0DF05800990492 /* BackgroundGradientSpots */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 		8FDA04612B0FF11D009D381F /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				8F18D74F2B10906E0029950F /* Fonts */,
 				8F5BC66E2B0DF05800990492 /* BackgroundGradientSpots */,
 			);
 			path = CustomUI;
@@ -238,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F18D7532B109D130029950F /* Token.ttf in Resources */,
 				8FA55FBD2AFD00EB007FEF74 /* LaunchScreen.storyboard in Resources */,
 				8FA55FBA2AFD00EB007FEF74 /* Assets.xcassets in Resources */,
 			);

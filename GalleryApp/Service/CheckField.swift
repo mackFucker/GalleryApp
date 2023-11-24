@@ -63,7 +63,12 @@ final class CheckField {
 
     private func validView(_ field: UITextField, _ valid: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0.2) {
-            field.backgroundColor = valid ? .softGreen : .warmPink
+            if field.text!.count > 3 {
+                field.backgroundColor = valid ? .softGreen : .warmPink
+            }
+            else {
+                field.backgroundColor = .lightYellow
+            }
         }
     }
 }

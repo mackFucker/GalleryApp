@@ -30,10 +30,10 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         setTransparentNavigationbar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.tintColor = .warmPink
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.navigationBar.tintColor = .warmPink
+//    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

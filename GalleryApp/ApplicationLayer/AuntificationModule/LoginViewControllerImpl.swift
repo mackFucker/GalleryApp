@@ -12,10 +12,14 @@ final class LoginViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        let layer = CustomGradientLayerBackgroundAuth(view: view)
-        //        view.layer.addSublayer(layer)
+        
         addNotification()
         setupUI()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>,
+                               with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     private func addNotification() {
@@ -32,6 +36,7 @@ final class LoginViewControllerImpl: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0 {
+                logoLabel.frame.origin.y = view.frame.height / 2 - 400 + keyboardSize.height
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
@@ -39,9 +44,36 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if view.frame.origin.y != 0 {
+            logoLabel.frame.origin.y = view.frame.height / 2 - 400
             self.view.frame.origin.y = 0
         }
     }
+    
+    private lazy var logoLabel: UIView = {
+        let loginButton = UIView(frame: CGRect(x: 0,
+                                               y: view.frame.height / 2 - 400,
+                                               width: view.frame.width,
+                                               height: 200))
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.warmPink.cgColor, UIColor.softOrange.cgColor]
+        
+        gradient.startPoint = CGPoint(x: 0.3, y: 0.5)
+        gradient.endPoint = CGPoint(x: 0.6, y: 0.5)
+        
+        gradient.frame = loginButton.bounds
+        loginButton.layer.addSublayer(gradient)
+        logoLabelMask.frame = loginButton.frame
+        loginButton.mask = logoLabelMask
+        return loginButton
+    }()
+    
+    private lazy var logoLabelMask: UILabel = {
+        let logoLabel = UILabel()
+        logoLabel.font = UIFont(name: "Token", size: 60)
+        logoLabel.text = "GuardDisk"
+        logoLabel.textAlignment = .center
+        return logoLabel
+    }()
     
     private lazy var loginTextField: UITextField = {
         let loginTextField = UITextField()
@@ -106,23 +138,29 @@ final class LoginViewControllerImpl: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
+        view.addSubview(logoLabel)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
         view.addSubview(stack)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     @objc
     private func login() {
-        if  check.validField(loginTextField, fieldType: .login),
-            check.validField(passwordTextField, fieldType: .password) {
-            if passwordTextField.text == "111" && loginTextField.text == "111"{
-                navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
-                                                         animated: true)
-            }
-            else{
-                print("error")
-            }
-        }        
+        navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
+                                                 animated: true)
+//        if  check.validField(loginTextField, fieldType: .login),
+//            check.validField(passwordTextField, fieldType: .password) {
+//            if loginTextField.text == "devid200590@gmail.com"
+//                && passwordTextField.text == "1111111" {
+//                navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
+//                                                         animated: true)
+//            }
+//            else {
+//                print("error")
+//            }
+//        }
     }
     
     @objc
@@ -132,6 +170,10 @@ final class LoginViewControllerImpl: UIViewController {
     
     override func updateViewConstraints() {
         NSLayoutConstraint.activate([
+//            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+//            logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            passwordTextField.heightAnchor.constraint(equalToConstant: 100),
+            
             loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             loginTextField.heightAnchor.constraint(equalToConstant: 50),
@@ -162,7 +204,7 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
         
         UIView.animate(withDuration: 0.2, delay: 0.2) {
             if self.loginTextField.backgroundColor == .softGreen
-            && self.passwordTextField.backgroundColor == .softGreen {
+                && self.passwordTextField.backgroundColor == .softGreen {
                 self.loginButton.backgroundColor = .softGreen
             }
             else {

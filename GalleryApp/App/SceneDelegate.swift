@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 //        let navController = UINavigationController(rootViewController: GalleryAllPhotosViewControllerImpl())
         let navController = UINavigationController(rootViewController: LoginViewControllerImpl())
-
+        navController.navigationBar.tintColor = .warmPink
         let viewController = navController
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
