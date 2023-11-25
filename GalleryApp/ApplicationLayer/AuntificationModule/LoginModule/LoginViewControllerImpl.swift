@@ -81,53 +81,31 @@ final class LoginViewControllerImpl: UIViewController {
         return logoLabel
     }()
     
-    private lazy var loginTextField: UITextField = {
-        let loginTextField = UITextField()
-        loginTextField.placeholder = "login"
-        loginTextField.returnKeyType = .next
-        loginTextField.delegate = self
-        loginTextField.tintColor = .warmPink
-        loginTextField.textAlignment = .center
-        loginTextField.keyboardType = .emailAddress
-        loginTextField.textColor = .gray
-        loginTextField.layer.cornerRadius = 12
-        loginTextField.backgroundColor = .lightYellow
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var loginTextField: UITextFieldAuth = {
+        let loginTextField = UITextFieldAuth(placeholder: "login",
+                                             returnKeyType: .next,
+                                             delegate: self, keyboardType: .emailAddress)
         return loginTextField
     }()
     
-    private lazy var passwordTextField: UITextField = {
-        let passwordTextField = UITextField()
-        passwordTextField.placeholder = "password"
-        passwordTextField.returnKeyType = .go
-        passwordTextField.delegate = self
-        passwordTextField.tintColor = .warmPink
-        passwordTextField.isSecureTextEntry = true
-        passwordTextField.textAlignment = .center
-        passwordTextField.textColor = .gray
-        passwordTextField.layer.cornerRadius = 12
-        passwordTextField.backgroundColor = .lightYellow
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var passwordTextField: UITextFieldAuth = {
+        let passwordTextField = UITextFieldAuth(placeholder: "password",
+                                                returnKeyType: .go,
+                                                delegate: self, keyboardType: .default)
         return passwordTextField
     }()
     
-    private lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.warmPink, for: .normal)
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-        loginButton.layer.cornerRadius = 10
+    private lazy var loginButton: UIButtonAuth = {
+        let loginButton = UIButtonAuth(title: "Login", 
+                                       action: #selector(login),
+                                       target: self)
         return loginButton
     }()
-    
-    private lazy var registrationButton: UIButton = {
-        let registrationButton = UIButton()
-        registrationButton.setTitle("Register", for: .normal)
-        registrationButton.setTitleColor(.warmPink, for: .normal)
-        registrationButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        registrationButton.addTarget(self, action: #selector(openRegistration), for: .touchUpInside)
-        registrationButton.layer.cornerRadius = 10
+
+    private lazy var registrationButton: UIButtonAuth = {
+        let registrationButton = UIButtonAuth(title: "Register",
+                                       action: #selector(openRegistration),
+                                       target: self)
         return registrationButton
     }()
     
@@ -211,8 +189,10 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
         }
         
         UIView.animate(withDuration: 0.2, delay: 0.2) {
-            if self.loginTextField.backgroundColor == .softGreen
-                && self.passwordTextField.backgroundColor == .softGreen {
+            let views = self.stackWithTextFields.arrangedSubviews
+            let succssesed = !views.contains { $0.backgroundColor != .softGreen }
+            
+            if succssesed {
                 self.loginButton.backgroundColor = .softGreen
             }
             else {
