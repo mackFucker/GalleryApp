@@ -131,20 +131,30 @@ final class LoginViewControllerImpl: UIViewController {
         return registrationButton
     }()
     
-    private lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [registrationButton, loginButton])
-        stack.axis = .horizontal
-        stack.spacing = 25
-        stack.distribution = .fillEqually
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
+    private lazy var stackWithTextFields: UIStackView = {
+        let stackWithTextFields = UIStackView(arrangedSubviews: [loginTextField, passwordTextField])
+        stackWithTextFields.contentMode = .left
+        stackWithTextFields.axis = .vertical
+        stackWithTextFields.spacing = 15
+        stackWithTextFields.distribution = .fillEqually
+        stackWithTextFields.alignment = .center
+        stackWithTextFields.translatesAutoresizingMaskIntoConstraints = false
+        return stackWithTextFields
+    }()
+    
+    private lazy var stackWithButtons: UIStackView = {
+        let stackWithButtons = UIStackView(arrangedSubviews: [registrationButton, loginButton])
+        stackWithButtons.axis = .horizontal
+        stackWithButtons.spacing = 25
+        stackWithButtons.distribution = .fillEqually
+        stackWithButtons.alignment = .center
+        stackWithButtons.translatesAutoresizingMaskIntoConstraints = false
+        return stackWithButtons
     }()
     
     private func setupUI() {
         view.backgroundColor = .white
-        view.addSubviews([logoLabel, loginTextField,
-                         passwordTextField, stack])
+        view.addSubviews([logoLabel, stackWithTextFields, stackWithButtons])
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -173,20 +183,19 @@ final class LoginViewControllerImpl: UIViewController {
     
     override func updateViewConstraints() {
         NSLayoutConstraint.activate([
-            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
-            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            loginTextField.heightAnchor.constraint(equalToConstant: 50),
-            loginTextField.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -25),
             
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            passwordTextField.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: -40),
+            stackWithTextFields.heightAnchor.constraint(equalToConstant: 100),
+            stackWithTextFields.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            stackWithTextFields.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            stackWithTextFields.bottomAnchor.constraint(equalTo: stackWithButtons.topAnchor, constant: -25),
             
-            stack.heightAnchor.constraint(equalToConstant: 65),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            stack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            loginTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 160),
+            passwordTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 160),
+            
+            stackWithButtons.heightAnchor.constraint(equalToConstant: 65),
+            stackWithButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
+            stackWithButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            stackWithButtons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
         ])
         super.updateViewConstraints()
     }
