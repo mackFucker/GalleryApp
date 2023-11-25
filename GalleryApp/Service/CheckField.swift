@@ -25,7 +25,6 @@ final class CheckField {
         case .password:
             dataRegex = passwordRegex
         default:
-            // Default case for other types
             dataRegex = ""
         }
 
@@ -65,9 +64,11 @@ final class CheckField {
         UIView.animate(withDuration: 0.2, delay: 0.2) {
             if field.text!.count > 3 {
                 field.backgroundColor = valid ? .softGreen : .warmPink
+                field.tintColor = valid ? .warmPink : .gray
             }
             else {
                 field.backgroundColor = .lightYellow
+                field.tintColor = .warmPink
             }
         }
     }

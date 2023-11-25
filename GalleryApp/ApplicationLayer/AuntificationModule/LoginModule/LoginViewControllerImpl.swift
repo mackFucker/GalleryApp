@@ -17,6 +17,12 @@ final class LoginViewControllerImpl: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
         view.endEditing(true)
@@ -137,11 +143,8 @@ final class LoginViewControllerImpl: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(logoLabel)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(stack)
-        
+        view.addSubviews([logoLabel, loginTextField,
+                         passwordTextField, stack])
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -164,15 +167,12 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc
     private func openRegistration() {
-        print("open regi...")
+        navigationController?.pushViewController(RegistrationViewControllerimpl(),
+                                                                       animated: true)
     }
     
     override func updateViewConstraints() {
         NSLayoutConstraint.activate([
-//            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-//            logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 100),
-            
             loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             loginTextField.heightAnchor.constraint(equalToConstant: 50),

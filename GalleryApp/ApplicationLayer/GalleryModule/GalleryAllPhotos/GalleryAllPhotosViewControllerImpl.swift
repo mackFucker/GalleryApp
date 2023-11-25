@@ -41,7 +41,7 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         setupNavigationbar()
     }
     
@@ -73,7 +73,7 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(openAccountInfo))
-        button.tintColor = .warmPink
+        
         navigationController?.navigationBar.topItem?.rightBarButtonItem = button
         self.navigationItem.hidesBackButton = true
     }
