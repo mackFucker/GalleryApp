@@ -13,9 +13,10 @@ final class UIButtonAuth: UIButton {
         
         self.layer.cornerRadius = 10
         self.setTitleColor(.warmPink, for: .normal)
-        self.setTitle("Login", for: .normal)
+        self.setTitle(title, for: .normal)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.addTarget(target, action: action, for: .touchUpInside)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {

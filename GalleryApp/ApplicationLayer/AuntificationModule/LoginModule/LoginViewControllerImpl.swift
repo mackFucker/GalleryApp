@@ -9,10 +9,14 @@ import UIKit
 
 final class LoginViewControllerImpl: UIViewController {
     private let check = CheckField.shared
+    private var logoLabelY: CGFloat!
+    private var textFieldWidht: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logoLabelY = 10
+        textFieldWidht = view.frame.width - 160
         addNotification()
         setupUI()
     }
@@ -42,7 +46,7 @@ final class LoginViewControllerImpl: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0 {
-                logoLabel.frame.origin.y = view.frame.height / 2 - 400 + keyboardSize.height
+                logoLabel.frame.origin.y = logoLabelY + keyboardSize.height
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
@@ -50,34 +54,16 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if view.frame.origin.y != 0 {
-            logoLabel.frame.origin.y = view.frame.height / 2 - 400
+            logoLabel.frame.origin.y = logoLabelY
             self.view.frame.origin.y = 0
         }
     }
     
-    private lazy var logoLabel: UIView = {
-        let loginButton = UIView(frame: CGRect(x: 0,
-                                               y: view.frame.height / 2 - 400,
-                                               width: view.frame.width,
-                                               height: 200))
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.warmPink.cgColor, UIColor.softOrange.cgColor]
-        
-        gradient.startPoint = CGPoint(x: 0.3, y: 0.5)
-        gradient.endPoint = CGPoint(x: 0.6, y: 0.5)
-        
-        gradient.frame = loginButton.bounds
-        loginButton.layer.addSublayer(gradient)
-        logoLabelMask.frame = loginButton.frame
-        loginButton.mask = logoLabelMask
-        return loginButton
-    }()
-    
-    private lazy var logoLabelMask: UILabel = {
-        let logoLabel = UILabel()
-        logoLabel.font = UIFont(name: "Token", size: 60)
-        logoLabel.text = "GuardDisk"
-        logoLabel.textAlignment = .center
+    private lazy var logoLabel: UILogoLabel = {
+        let logoLabel = UILogoLabel(frame: CGRect(x: 0,
+                                                  y: logoLabelY,
+                                                  width: view.frame.width,
+                                                  height: 200))
         return logoLabel
     }()
     
@@ -167,13 +153,13 @@ final class LoginViewControllerImpl: UIViewController {
             stackWithTextFields.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             stackWithTextFields.bottomAnchor.constraint(equalTo: stackWithButtons.topAnchor, constant: -25),
             
-            loginTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 160),
-            passwordTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 160),
+            loginTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
+            passwordTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
             
             stackWithButtons.heightAnchor.constraint(equalToConstant: 65),
             stackWithButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
             stackWithButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            stackWithButtons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            stackWithButtons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
         super.updateViewConstraints()
     }
