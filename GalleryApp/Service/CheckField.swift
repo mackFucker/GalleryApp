@@ -32,32 +32,30 @@ final class CheckField {
         return dataPredicate.evaluate(with: data)
     }
 
-    @discardableResult
-    func validField(_ field: UITextField, fieldType: FieldType) -> Bool {
+    
+    func validField(_ field: UITextField, fieldType: FieldType) {
         let fieldValue = field.text ?? ""
 
         switch fieldType {
         case .username, .generic:
-            return validateGenericField(field, value: fieldValue, minLength: 3)
+            validateGenericField(field, value: fieldValue, minLength: 3)
 
         case .login, .email:
-            return validateSpecificField(field, value: fieldValue, type: .email)
+            validateSpecificField(field, value: fieldValue, type: .email)
 
         case .password, .confirmPassword:
-            return validateSpecificField(field, value: fieldValue, type: .password)
+            validateSpecificField(field, value: fieldValue, type: .password)
         }
     }
 
-    private func validateGenericField(_ field: UITextField, value: String, minLength: Int) -> Bool {
+    private func validateGenericField(_ field: UITextField, value: String, minLength: Int) {
         let isValid = value.count >= minLength
         validView(field, isValid)
-        return isValid
     }
 
-    private func validateSpecificField(_ field: UITextField, value: String, type: FieldType) -> Bool {
+    private func validateSpecificField(_ field: UITextField, value: String, type: FieldType) {
         let isValid = isValid(type: type, data: value)
         validView(field, isValid)
-        return isValid
     }
 
     private func validView(_ field: UITextField, _ valid: Bool) {

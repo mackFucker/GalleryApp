@@ -8,7 +8,9 @@
 import UIKit
 
 final class UIButtonAuth: UIButton {
-    init(title: String, action: Selector, target: Any) {
+    init(title: String,
+         action: Selector,
+         target: Any) {
         super.init(frame: .zero)
         
         self.layer.cornerRadius = 10

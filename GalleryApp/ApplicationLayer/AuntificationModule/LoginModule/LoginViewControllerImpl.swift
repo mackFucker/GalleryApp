@@ -9,13 +9,13 @@ import UIKit
 
 final class LoginViewControllerImpl: UIViewController {
     private let check = CheckField.shared
-    private var logoLabelY: CGFloat!
+    private let logoLabelY: CGFloat = 10
     private var textFieldWidht: CGFloat!
+    private var succssesed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logoLabelY = 10
         textFieldWidht = view.frame.width - 160
         addNotification()
         setupUI()
@@ -24,7 +24,15 @@ final class LoginViewControllerImpl: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        logoLabel.frame.origin.y = logoLabelY
+        navigationController?.setNavigationBarHidden(true,
+                                                     animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,
@@ -52,7 +60,7 @@ final class LoginViewControllerImpl: UIViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide() {
         if view.frame.origin.y != 0 {
             logoLabel.frame.origin.y = logoLabelY
             self.view.frame.origin.y = 0
@@ -124,8 +132,11 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc
     private func login() {
-        navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
-                                                 animated: true)
+        if succssesed {
+            navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
+                                                     animated: true)
+        }
+       
 //        if  check.validField(loginTextField, fieldType: .login),
 //            check.validField(passwordTextField, fieldType: .password) {
 //            if loginTextField.text == "devid200590@gmail.com"
@@ -147,7 +158,6 @@ final class LoginViewControllerImpl: UIViewController {
     
     override func updateViewConstraints() {
         NSLayoutConstraint.activate([
-            
             stackWithTextFields.heightAnchor.constraint(equalToConstant: 100),
             stackWithTextFields.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             stackWithTextFields.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
@@ -176,9 +186,9 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
         
         UIView.animate(withDuration: 0.2, delay: 0.2) {
             let views = self.stackWithTextFields.arrangedSubviews
-            let succssesed = !views.contains { $0.backgroundColor != .softGreen }
+            self.succssesed = !views.contains { $0.backgroundColor != .softGreen }
             
-            if succssesed {
+            if self.succssesed {
                 self.loginButton.backgroundColor = .softGreen
             }
             else {

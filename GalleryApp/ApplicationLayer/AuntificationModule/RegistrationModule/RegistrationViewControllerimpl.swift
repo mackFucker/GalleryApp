@@ -9,13 +9,13 @@ import UIKit
 
 final class RegistrationViewControllerimpl: UIViewController {
     private let check = CheckField.shared
-    private var logoLabelY: CGFloat!
+    private let logoLabelY: CGFloat = 10
     private var textFieldWidht: CGFloat!
+    private var succssesed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logoLabelY = 10
         textFieldWidht = view.frame.width - 160
         addNotification()
         setupUI()
@@ -23,8 +23,13 @@ final class RegistrationViewControllerimpl: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,
@@ -127,7 +132,9 @@ final class RegistrationViewControllerimpl: UIViewController {
     
     @objc
     private func registration() {
-       
+        if succssesed {
+            print("registration")
+        }
     }
     
     override func updateViewConstraints() {
@@ -165,24 +172,13 @@ extension RegistrationViewControllerimpl: UITextFieldDelegate {
         }
         
         UIView.animate(withDuration: 0.2, delay: 0.2) {
-//            let views = self.stackWithTextFields.arrangedSubviews
-//            let succssesed = !views.contains { $0.backgroundColor != .softGreen } &&
-//            self.passwordTextField.text == self.confirmPasswordTextField.text
-//
-//            if succssesed {
-//                self.registrationButton.backgroundColor = .softGreen
-//            }
-//            else {
-//                self.registrationButton.backgroundColor = .clear
-//            }
-            
-                if self.nameTextField.backgroundColor == .softGreen &&
-                    self.emailTextField.backgroundColor == .softGreen &&
-                    self.passwordTextField.backgroundColor == .softGreen &&
-                    self.confirmPasswordTextField.backgroundColor == .softGreen &&
-                    self.passwordTextField.text == self.confirmPasswordTextField.text {
-                    self.registrationButton.backgroundColor = .softGreen
-                }
+            let views = self.stackWithTextFields.arrangedSubviews
+            self.succssesed = !views.contains { $0.backgroundColor != .softGreen } &&
+            self.passwordTextField.text == self.confirmPasswordTextField.text
+
+            if self.succssesed {
+                self.registrationButton.backgroundColor = .softGreen
+            }
             else {
                 self.registrationButton.backgroundColor = .clear
             }
@@ -198,13 +194,7 @@ extension RegistrationViewControllerimpl: UITextFieldDelegate {
             case passwordTextField:
                 confirmPasswordTextField.becomeFirstResponder()
             default:
-            if passwordTextField.text == confirmPasswordTextField.text {
-                print("пароли совпадают")
-                registration()
-            }
-            else {
-                print("пароли не совпадают")
-            }
+            registration()
         }
         return true
     }
