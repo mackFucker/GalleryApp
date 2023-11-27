@@ -10,13 +10,13 @@ import UIKit
 final class LoginViewControllerImpl: UIViewController {
     private let check = CheckField.shared
     private let logoLabelY: CGFloat = 10
-    private var textFieldWidht: CGFloat!
+    private var textFieldWidth: CGFloat!
     private var succssesed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textFieldWidht = view.frame.width - 160
+        textFieldWidth = view.frame.width - 160
         addNotification()
         setupUI()
     }
@@ -163,8 +163,8 @@ final class LoginViewControllerImpl: UIViewController {
             stackWithTextFields.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             stackWithTextFields.bottomAnchor.constraint(equalTo: stackWithButtons.topAnchor, constant: -25),
             
-            loginTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
-            passwordTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
+            loginTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
+            passwordTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
             
             stackWithButtons.heightAnchor.constraint(equalToConstant: 65),
             stackWithButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),

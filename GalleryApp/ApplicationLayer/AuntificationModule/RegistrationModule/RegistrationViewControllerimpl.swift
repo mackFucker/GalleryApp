@@ -10,13 +10,13 @@ import UIKit
 final class RegistrationViewControllerimpl: UIViewController {
     private let check = CheckField.shared
     private let logoLabelY: CGFloat = 10
-    private var textFieldWidht: CGFloat!
+    private var textFieldWidth: CGFloat!
     private var succssesed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textFieldWidht = view.frame.width - 160
+        textFieldWidth = view.frame.width - 160
         addNotification()
         setupUI()
     }
@@ -144,10 +144,10 @@ final class RegistrationViewControllerimpl: UIViewController {
             stackWithTextFields.heightAnchor.constraint(equalToConstant: 245),
             stackWithTextFields.bottomAnchor.constraint(equalTo: registrationButton.topAnchor, constant: -25),
             
-            nameTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
-            emailTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
-            passwordTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
-            confirmPasswordTextField.widthAnchor.constraint(equalToConstant: textFieldWidht),
+            nameTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
+            emailTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
+            passwordTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
+            confirmPasswordTextField.widthAnchor.constraint(equalToConstant: textFieldWidth),
 
             registrationButton.heightAnchor.constraint(equalToConstant: 50),
             registrationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),

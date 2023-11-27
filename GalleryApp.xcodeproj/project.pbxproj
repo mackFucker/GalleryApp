@@ -214,8 +214,8 @@
 		8FDA04612B0FF11D009D381F /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				8FD38C0E2B1225950097ED01 /* CustomViews */,
 				8F18D74F2B10906E0029950F /* Fonts */,
+				8FD38C0E2B1225950097ED01 /* CustomViews */,
 				8F5BC66E2B0DF05800990492 /* BackgroundGradientSpots */,
 			);
 			path = CustomUI;
