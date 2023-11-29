@@ -7,12 +7,29 @@
 
 import UIKit
 
-final class RegistrationViewControllerimpl: UIViewController {
+protocol RegistrationViewController: AnyObject {
+    
+}
+
+final class RegistrationViewControllerImpl: UIViewController {
     private let check = CheckField.shared
+    
     private let logoLabelY: CGFloat = 10
     private var textFieldWidth: CGFloat!
     private var succssesed = false
-
+    
+    var presenter: RegistrationPresenter!
+    
+//    init(presenter: RegistrationPresenter) {
+//        
+//        self.presenter = presenter
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -133,7 +150,8 @@ final class RegistrationViewControllerimpl: UIViewController {
     @objc
     private func registration() {
         if succssesed {
-            print("registration")
+            presenter.signup(data: .init(email: emailTextField.text!,
+                                         password: passwordTextField.text!))
         }
     }
     
@@ -158,7 +176,7 @@ final class RegistrationViewControllerimpl: UIViewController {
     }
 }
 
-extension RegistrationViewControllerimpl: UITextFieldDelegate {
+extension RegistrationViewControllerImpl: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         switch textField {
             case nameTextField:
@@ -198,4 +216,8 @@ extension RegistrationViewControllerimpl: UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension RegistrationViewControllerImpl: RegistrationViewController {
+    
 }

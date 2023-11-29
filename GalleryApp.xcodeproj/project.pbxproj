@@ -13,7 +13,7 @@
 		8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackgroundAllPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackgroundAllPhotos.swift */; };
 		8F66C92E2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */; };
 		8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */; };
-		8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerimpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerimpl.swift */; };
+		8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift */; };
 		8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */; };
 		8FA09D392B050935005D62B8 /* GalleryAllPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA09D382B050935005D62B8 /* GalleryAllPhotosModel.swift */; };
 		8FA09D3B2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA09D3A2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift */; };
@@ -50,6 +50,9 @@
 		8FD2F22A2B17C4CB00AA68BD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD2F2292B17C4CB00AA68BD /* FirebaseStorage */; };
 		8FD2F22C2B17C4CB00AA68BD /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD2F22B2B17C4CB00AA68BD /* FirebaseStorageCombine-Community */; };
 		8FD2F22E2B17C6AB00AA68BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD2F22D2B17C6AA00AA68BD /* GoogleService-Info.plist */; };
+		8FD2F2312B17E0C400AA68BD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2302B17E0C400AA68BD /* AuthService.swift */; };
+		8FD2F2332B17EE6E00AA68BD /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2322B17EE6E00AA68BD /* LoginPresenterImpl.swift */; };
+		8FD2F2352B17EE8E00AA68BD /* RegistrationPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2342B17EE8E00AA68BD /* RegistrationPresenterImpl.swift */; };
 		8FD38C0C2B11FD1B0097ED01 /* UIVIew + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C0B2B11FD1B0097ED01 /* UIVIew + .swift */; };
 		8FD38C102B1225B00097ED01 /* UITextFieldAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */; };
 		8FD38C122B122B990097ED01 /* UIButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C112B122B990097ED01 /* UIButtonAuth.swift */; };
@@ -67,7 +70,7 @@
 		8F5BC6712B0E0C7900990492 /* CustomGradientLayerBackgroundAllPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackgroundAllPhotos.swift; sourceTree = "<group>"; };
 		8F66C92D2B06D51E007DE509 /* GalleryFullScreenViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFullScreenViewControllerImpl.swift; sourceTree = "<group>"; };
 		8F66C92F2B06D980007DE509 /* AllPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
-		8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerimpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerimpl.swift; sourceTree = "<group>"; };
+		8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerImpl.swift; sourceTree = "<group>"; };
 		8FA09D362B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosViewControllerImpl.swift; sourceTree = "<group>"; };
 		8FA09D382B050935005D62B8 /* GalleryAllPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosModel.swift; sourceTree = "<group>"; };
 		8FA09D3A2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosPresenterImpl.swift; sourceTree = "<group>"; };
@@ -79,6 +82,9 @@
 		8FA55FBE2AFD00EB007FEF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD2F1F42B17B14500AA68BD /* Token.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Token.ttf; path = "../../../../🥺🥺🥺/Учебные проекты /GalleryApp/GalleryApp/CustomUI/Fonts/Token.ttf"; sourceTree = "<group>"; };
 		8FD2F22D2B17C6AA00AA68BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FD2F2302B17E0C400AA68BD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8FD2F2322B17EE6E00AA68BD /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
+		8FD2F2342B17EE8E00AA68BD /* RegistrationPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterImpl.swift; sourceTree = "<group>"; };
 		8FD38C0B2B11FD1B0097ED01 /* UIVIew + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew + .swift"; sourceTree = "<group>"; };
 		8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldAuth.swift; sourceTree = "<group>"; };
 		8FD38C112B122B990097ED01 /* UIButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonAuth.swift; sourceTree = "<group>"; };
@@ -166,7 +172,8 @@
 		8F72692E2B11ECC400CFD44B /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
-				8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerimpl.swift */,
+				8F7E793E2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift */,
+				8FD2F2342B17EE8E00AA68BD /* RegistrationPresenterImpl.swift */,
 			);
 			path = RegistrationModule;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				8FFF2CFF2B0FBDC700BF34C8 /* LoginViewControllerImpl.swift */,
+				8FD2F2322B17EE6E00AA68BD /* LoginPresenterImpl.swift */,
 			);
 			path = LoginModule;
 			sourceTree = "<group>";
@@ -240,6 +248,14 @@
 			path = GalleryApp;
 			sourceTree = "<group>";
 		};
+		8FD2F22F2B17DC1600AA68BD /* FirebaseServices */ = {
+			isa = PBXGroup;
+			children = (
+				8FD2F2302B17E0C400AA68BD /* AuthService.swift */,
+			);
+			path = FirebaseServices;
+			sourceTree = "<group>";
+		};
 		8FD38C0D2B1200AF0097ED01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +297,7 @@
 		8FDA04642B0FF1C0009D381F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8FD2F22F2B17DC1600AA68BD /* FirebaseServices */,
 				8FF5278C2B0FF31200F9FB42 /* CheckField.swift */,
 			);
 			path = Service;
@@ -405,6 +422,7 @@
 				8FD38C142B122F1C0097ED01 /* UIlogoLabel.swift in Sources */,
 				8F2977102B079DAD00B42397 /* FullScreenPhotoCell.swift in Sources */,
 				8F5BC6702B0DF0DD00990492 /* CustomGradientLayerSpot.swift in Sources */,
+				8FD2F2312B17E0C400AA68BD /* AuthService.swift in Sources */,
 				8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackgroundAllPhotos.swift in Sources */,
 				8FA09D3B2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift in Sources */,
 				8FD38C0C2B11FD1B0097ED01 /* UIVIew + .swift in Sources */,
@@ -413,11 +431,13 @@
 				8FF5278D2B0FF31200F9FB42 /* CheckField.swift in Sources */,
 				8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */,
 				8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */,
-				8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerimpl.swift in Sources */,
+				8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift in Sources */,
 				8FFF2D022B0FD01700BF34C8 /* CustomGradientLayerBackgroundAuth.swift in Sources */,
+				8FD2F2332B17EE6E00AA68BD /* LoginPresenterImpl.swift in Sources */,
 				8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */,
 				8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */,
 				8FA09D392B050935005D62B8 /* GalleryAllPhotosModel.swift in Sources */,
+				8FD2F2352B17EE8E00AA68BD /* RegistrationPresenterImpl.swift in Sources */,
 				8FD38C102B1225B00097ED01 /* UITextFieldAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

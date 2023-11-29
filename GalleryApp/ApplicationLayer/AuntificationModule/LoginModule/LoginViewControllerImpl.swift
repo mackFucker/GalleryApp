@@ -152,8 +152,8 @@ final class LoginViewControllerImpl: UIViewController {
     
     @objc
     private func openRegistration() {
-        navigationController?.pushViewController(RegistrationViewControllerimpl(),
-                                                                       animated: true)
+//        navigationController?.pushViewController(RegistrationViewControllerimpl(presenter: RegistrationPresenterImpl(view: RegistrationViewController())),
+//                                                                                animated: true)
     }
     
     override func updateViewConstraints() {
