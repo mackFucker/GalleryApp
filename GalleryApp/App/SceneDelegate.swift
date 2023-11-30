@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 //        let navController = UINavigationController(rootViewController: GalleryAllPhotosViewControllerImpl())
         let view = RegistrationViewControllerImpl()
-        let presenter = RegistrationPresenterImpl(view: view)
+        let presenter = RegistrationPresenterImpl(view: view, service: AuthService.shared)
         view.presenter = presenter
         
         let navController = UINavigationController(rootViewController: view)

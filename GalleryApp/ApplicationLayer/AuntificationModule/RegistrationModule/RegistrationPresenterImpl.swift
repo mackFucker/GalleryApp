@@ -8,23 +8,25 @@
 import Foundation
 
 protocol RegistrationPresenter: AnyObject {
-//    var view: RegistrationViewController? { get set }
-    var service: AuthService { get set }
     func signup(data: RegistrationField)
 }
 
 final class RegistrationPresenterImpl: RegistrationPresenter {
-    var service = AuthService.shared
-    weak var view: RegistrationViewController!
     
-    init(view: RegistrationViewController) {
+    private let service: AuthService
+    private weak var view: RegistrationViewController?
+    
+    init(view: RegistrationViewController,
+         service: AuthService) {
         self.view = view
+        self.service = service
     }
+    
     func signup(data: RegistrationField) {
         service.signup(data) { result in
-            
             switch result {
                 case .success:
+                //view.navigate.... or updateViews...
                     print("success")
                 case .error(let error):
                     print(error)
