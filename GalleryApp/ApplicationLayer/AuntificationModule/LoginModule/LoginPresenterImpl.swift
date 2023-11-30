@@ -42,6 +42,6 @@ final class LoginPresenterImpl: LoginPresenter {
     }
     
     func registrateOpen() {
-        coordinator.start()
+        coordinator.registrationOpen()
     }
 }

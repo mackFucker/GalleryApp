@@ -16,18 +16,12 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let view = LoginViewControllerImpl()
-        
-        let navController = UINavigationController(rootViewController: view)
+        let navController = UINavigationController()
         navController.navigationBar.tintColor = .warmPink
-        
-        let presenter = LoginPresenterImpl(view: view,
-                                           service: AuthService.shared,
-                                           coordinator: AuthModuleCoordinator(navigationController: navController) as AuthCoordinator)
-        view.presenter = presenter
-        
-       
         window.rootViewController = navController
         window.makeKeyAndVisible()
+        
+        let coordinator = AuthModuleCoordinator(navigationController: navController)
+        coordinate(to: coordinator)
     }
 }
