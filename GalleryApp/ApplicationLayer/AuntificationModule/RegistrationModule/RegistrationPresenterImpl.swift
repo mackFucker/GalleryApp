@@ -15,21 +15,26 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
     
     private let service: AuthService
     private weak var view: RegistrationViewController?
-    
+    private let coordinator: AuthCoordinator
+
     init(view: RegistrationViewController,
-         service: AuthService) {
+         service: AuthService,
+         coordinator: AuthCoordinator) {
         self.view = view
         self.service = service
+        self.coordinator = coordinator
     }
     
     func signup(data: RegistrationField) {
         service.signup(data) { result in
             switch result {
                 case .success:
-                //view.navigate.... or updateViews...
+                    self.coordinator.pushMainScreen()
                     print("success")
                 case .error(let error):
                     print(error)
+            case .noVerify:
+                print("No verify firebase")
             }
         }
     }

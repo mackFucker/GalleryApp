@@ -35,23 +35,29 @@ final class AuthService {
         }
     }
     
-//    func signIn(_ data: RegistrationField, complition: @escaping (AuthResponce) -> ()) {
-//        Auth.auth().signIn(withEmail: data.email , password: data.password) {
-//            result, error in
-//            if error != nil {
-//                complition(.error)
-//                print(error!.localizedDescription)
-//            }
-//            if let result = result {
-//                if result.user.isEmailVerified {
-//                    complition(.success)
-//                } else {
-//                    self.confimEmail()
-//                    complition(.noVerify)
-//                }
-//            }
-//        }
-//    }
+    func signin(_ data: RegistrationField, complition: @escaping (AuthResponce) -> ()) {
+        Auth.auth().signIn(withEmail: data.email , password: data.password) {
+            result, error in
+            
+            if let error = error as? NSError {
+                complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
+            }
+            else {
+                if let result = result {
+                    if result.user.isEmailVerified {
+                        complition(.success)
+                    } else {
+                        self.confimEmail()
+                        complition(.noVerify)
+                    }
+                }
+            }
+            
+            if let result = result {
+               
+            }
+        }
+    }
     
 //    func signOut(complition: @escaping (AuthResponce) -> ()) {
 //        do {
@@ -74,7 +80,9 @@ final class AuthService {
 
 enum AuthResponce {
     case success
-    case error(AuthErrorCode.Code)}
+    case error(AuthErrorCode.Code)
+    case noVerify
+}
 //
 //enum Error {
 //    case AuthErrorCode

@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var coordinator: Coordinator?
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -17,17 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-//        let navController = UINavigationController(rootViewController: GalleryAllPhotosViewControllerImpl())
-        let view = RegistrationViewControllerImpl()
-        let presenter = RegistrationPresenterImpl(view: view, service: AuthService.shared)
-        view.presenter = presenter
         
-        let navController = UINavigationController(rootViewController: view)
-//        let navController = UINavigationController(rootViewController: LoginViewControllerImpl())
-        navController.navigationBar.tintColor = .warmPink
-        let viewController = navController
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
-        guard let _ = (scene as? UIWindowScene) else { return }
+        coordinator = AppCoordinator(window: window!)
+        coordinator?.start()
     }
 }

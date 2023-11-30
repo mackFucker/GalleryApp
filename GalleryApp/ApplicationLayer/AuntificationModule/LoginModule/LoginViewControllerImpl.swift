@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol LoginViewController: AnyObject {
+    
+}
+
 final class LoginViewControllerImpl: UIViewController {
     private let check = CheckField.shared
     private let logoLabelY: CGFloat = 10
     private var textFieldWidth: CGFloat!
     private var succssesed = false
+    
+    var presenter: LoginPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,27 +139,16 @@ final class LoginViewControllerImpl: UIViewController {
     @objc
     private func login() {
         if succssesed {
-            navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
-                                                     animated: true)
+            print(loginTextField.text!)
+            
+            presenter.signin(data: .init(email: loginTextField.text!,
+                                         password: passwordTextField.text!))
         }
-       
-//        if  check.validField(loginTextField, fieldType: .login),
-//            check.validField(passwordTextField, fieldType: .password) {
-//            if loginTextField.text == "devid200590@gmail.com"
-//                && passwordTextField.text == "1111111" {
-//                navigationController?.pushViewController(GalleryAllPhotosViewControllerImpl(),
-//                                                         animated: true)
-//            }
-//            else {
-//                print("error")
-//            }
-//        }
     }
     
     @objc
     private func openRegistration() {
-//        navigationController?.pushViewController(RegistrationViewControllerimpl(presenter: RegistrationPresenterImpl(view: RegistrationViewController())),
-//                                                                                animated: true)
+        presenter.registrateOpen()
     }
     
     override func updateViewConstraints() {
@@ -207,3 +202,8 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
         return true
     }
 }
+
+extension LoginViewControllerImpl: LoginViewController {
+    
+}
+

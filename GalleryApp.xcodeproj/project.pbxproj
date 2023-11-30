@@ -53,6 +53,10 @@
 		8FD2F2312B17E0C400AA68BD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2302B17E0C400AA68BD /* AuthService.swift */; };
 		8FD2F2332B17EE6E00AA68BD /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2322B17EE6E00AA68BD /* LoginPresenterImpl.swift */; };
 		8FD2F2352B17EE8E00AA68BD /* RegistrationPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2342B17EE8E00AA68BD /* RegistrationPresenterImpl.swift */; };
+		8FD2F2382B18776700AA68BD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2372B18776700AA68BD /* AppCoordinator.swift */; };
+		8FD2F23A2B1877CE00AA68BD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F2392B1877CE00AA68BD /* Coordinator.swift */; };
+		8FD2F23C2B1885DC00AA68BD /* AuthModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F23B2B1885DC00AA68BD /* AuthModuleCoordinator.swift */; };
+		8FD2F23E2B1891DF00AA68BD /* MainModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2F23D2B1891DF00AA68BD /* MainModuleCoordinator.swift */; };
 		8FD38C0C2B11FD1B0097ED01 /* UIVIew + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C0B2B11FD1B0097ED01 /* UIVIew + .swift */; };
 		8FD38C102B1225B00097ED01 /* UITextFieldAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */; };
 		8FD38C122B122B990097ED01 /* UIButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C112B122B990097ED01 /* UIButtonAuth.swift */; };
@@ -85,6 +89,10 @@
 		8FD2F2302B17E0C400AA68BD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8FD2F2322B17EE6E00AA68BD /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		8FD2F2342B17EE8E00AA68BD /* RegistrationPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterImpl.swift; sourceTree = "<group>"; };
+		8FD2F2372B18776700AA68BD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8FD2F2392B1877CE00AA68BD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8FD2F23B2B1885DC00AA68BD /* AuthModuleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleCoordinator.swift; sourceTree = "<group>"; };
+		8FD2F23D2B1891DF00AA68BD /* MainModuleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleCoordinator.swift; sourceTree = "<group>"; };
 		8FD38C0B2B11FD1B0097ED01 /* UIVIew + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew + .swift"; sourceTree = "<group>"; };
 		8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldAuth.swift; sourceTree = "<group>"; };
 		8FD38C112B122B990097ED01 /* UIButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonAuth.swift; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 		8FA09D322B050867005D62B8 /* GalleryModule */ = {
 			isa = PBXGroup;
 			children = (
+				8FD2F23D2B1891DF00AA68BD /* MainModuleCoordinator.swift */,
 				8FA09D3C2B05097A005D62B8 /* GalleryAllPhotos */,
 				8F66C92C2B06D486007DE509 /* GalleryFullScreenPhotos */,
 				8F66C92B2B06D453007DE509 /* CustomCollectionViewCells */,
@@ -240,6 +249,7 @@
 				8FD38C0D2B1200AF0097ED01 /* Extensions */,
 				8FDA04612B0FF11D009D381F /* CustomUI */,
 				8FDA045E2B0FF0D0009D381F /* ApplicationLayer */,
+				8FD2F2362B18770D00AA68BD /* CoreLayer */,
 				8FDA04642B0FF1C0009D381F /* Service */,
 				8FA09D352B0508B4005D62B8 /* App */,
 				8FA55FBE2AFD00EB007FEF74 /* Info.plist */,
@@ -254,6 +264,15 @@
 				8FD2F2302B17E0C400AA68BD /* AuthService.swift */,
 			);
 			path = FirebaseServices;
+			sourceTree = "<group>";
+		};
+		8FD2F2362B18770D00AA68BD /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8FD2F2372B18776700AA68BD /* AppCoordinator.swift */,
+				8FD2F2392B1877CE00AA68BD /* Coordinator.swift */,
+			);
+			path = CoreLayer;
 			sourceTree = "<group>";
 		};
 		8FD38C0D2B1200AF0097ED01 /* Extensions */ = {
@@ -306,6 +325,7 @@
 		8FFF2CFE2B0FBD6E00BF34C8 /* AuntificationModule */ = {
 			isa = PBXGroup;
 			children = (
+				8FD2F23B2B1885DC00AA68BD /* AuthModuleCoordinator.swift */,
 				8F72692F2B11ECE700CFD44B /* LoginModule */,
 				8F72692E2B11ECC400CFD44B /* RegistrationModule */,
 			);
@@ -428,8 +448,11 @@
 				8FD38C0C2B11FD1B0097ED01 /* UIVIew + .swift in Sources */,
 				8FFF2D002B0FBDC700BF34C8 /* LoginViewControllerImpl.swift in Sources */,
 				8F5BC66D2B0D515800990492 /* UIColor + .swift in Sources */,
+				8FD2F2382B18776700AA68BD /* AppCoordinator.swift in Sources */,
 				8FF5278D2B0FF31200F9FB42 /* CheckField.swift in Sources */,
+				8FD2F23C2B1885DC00AA68BD /* AuthModuleCoordinator.swift in Sources */,
 				8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */,
+				8FD2F23E2B1891DF00AA68BD /* MainModuleCoordinator.swift in Sources */,
 				8F66C9302B06D980007DE509 /* AllPhotosCell.swift in Sources */,
 				8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift in Sources */,
 				8FFF2D022B0FD01700BF34C8 /* CustomGradientLayerBackgroundAuth.swift in Sources */,
@@ -437,6 +460,7 @@
 				8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */,
 				8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */,
 				8FA09D392B050935005D62B8 /* GalleryAllPhotosModel.swift in Sources */,
+				8FD2F23A2B1877CE00AA68BD /* Coordinator.swift in Sources */,
 				8FD2F2352B17EE8E00AA68BD /* RegistrationPresenterImpl.swift in Sources */,
 				8FD38C102B1225B00097ED01 /* UITextFieldAuth.swift in Sources */,
 			);
