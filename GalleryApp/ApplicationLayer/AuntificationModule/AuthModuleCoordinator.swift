@@ -24,7 +24,7 @@ final class AuthModuleCoordinator: AuthCoordinator {
         let view = LoginViewControllerImpl()
         let presenter = LoginPresenterImpl(view: view,
                                            service: AuthService.shared,
-                                           coordinator: AuthModuleCoordinator(navigationController: navigationController) as AuthCoordinator)
+                                           coordinator: AuthModuleCoordinator(navigationController: navigationController))
         view.presenter = presenter
         navigationController.pushViewController(view,
                                                 animated: false)

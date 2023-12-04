@@ -35,7 +35,8 @@ final class RegistrationViewControllerImpl: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        navigationController?.setNavigationBarHidden(true,
+                                                     animated: animated)
         view.endEditing(true)
     }
     
@@ -140,7 +141,8 @@ final class RegistrationViewControllerImpl: UIViewController {
     @objc
     private func registration() {
         if succssesed {
-            presenter.signup(data: .init(email: emailTextField.text!,
+            presenter.signup(data: .init(name: nameTextField.text!,
+                                         email:  emailTextField.text!,
                                          password: passwordTextField.text!))
         }
     }

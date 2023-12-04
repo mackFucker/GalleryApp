@@ -61,6 +61,10 @@
 		8FD38C102B1225B00097ED01 /* UITextFieldAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */; };
 		8FD38C122B122B990097ED01 /* UIButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C112B122B990097ED01 /* UIButtonAuth.swift */; };
 		8FD38C142B122F1C0097ED01 /* UIlogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD38C132B122F1B0097ED01 /* UIlogoLabel.swift */; };
+		8FE904352B1DC59500E04FF6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE904342B1DC59500E04FF6 /* DatabaseService.swift */; };
+		8FE904382B1DC76400E04FF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE904372B1DC76400E04FF6 /* User.swift */; };
+		8FE9043A2B1DC78000E04FF6 /* RegistrationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE904392B1DC78000E04FF6 /* RegistrationField.swift */; };
+		8FE9043E2B1DC7B900E04FF6 /* AuthResponceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE9043D2B1DC7B900E04FF6 /* AuthResponceEnum.swift */; };
 		8FF5278D2B0FF31200F9FB42 /* CheckField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF5278C2B0FF31200F9FB42 /* CheckField.swift */; };
 		8FFF2CFD2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF2CFC2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift */; };
 		8FFF2D002B0FBDC700BF34C8 /* LoginViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF2CFF2B0FBDC700BF34C8 /* LoginViewControllerImpl.swift */; };
@@ -97,6 +101,10 @@
 		8FD38C0F2B1225B00097ED01 /* UITextFieldAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldAuth.swift; sourceTree = "<group>"; };
 		8FD38C112B122B990097ED01 /* UIButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonAuth.swift; sourceTree = "<group>"; };
 		8FD38C132B122F1B0097ED01 /* UIlogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIlogoLabel.swift; sourceTree = "<group>"; };
+		8FE904342B1DC59500E04FF6 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		8FE904372B1DC76400E04FF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8FE904392B1DC78000E04FF6 /* RegistrationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationField.swift; sourceTree = "<group>"; };
+		8FE9043D2B1DC7B900E04FF6 /* AuthResponceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponceEnum.swift; sourceTree = "<group>"; };
 		8FF5278C2B0FF31200F9FB42 /* CheckField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckField.swift; sourceTree = "<group>"; };
 		8FFF2CFC2B0E859D00BF34C8 /* CustomGradientLayerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackground.swift; sourceTree = "<group>"; };
 		8FFF2CFF2B0FBDC700BF34C8 /* LoginViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerImpl.swift; sourceTree = "<group>"; };
@@ -261,7 +269,9 @@
 		8FD2F22F2B17DC1600AA68BD /* FirebaseServices */ = {
 			isa = PBXGroup;
 			children = (
+				8FE904362B1DC75B00E04FF6 /* Models */,
 				8FD2F2302B17E0C400AA68BD /* AuthService.swift */,
+				8FE904342B1DC59500E04FF6 /* DatabaseService.swift */,
 			);
 			path = FirebaseServices;
 			sourceTree = "<group>";
@@ -320,6 +330,16 @@
 				8FF5278C2B0FF31200F9FB42 /* CheckField.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8FE904362B1DC75B00E04FF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FE904372B1DC76400E04FF6 /* User.swift */,
+				8FE904392B1DC78000E04FF6 /* RegistrationField.swift */,
+				8FE9043D2B1DC7B900E04FF6 /* AuthResponceEnum.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8FFF2CFE2B0FBD6E00BF34C8 /* AuntificationModule */ = {
@@ -444,6 +464,7 @@
 				8F5BC6702B0DF0DD00990492 /* CustomGradientLayerSpot.swift in Sources */,
 				8FD2F2312B17E0C400AA68BD /* AuthService.swift in Sources */,
 				8F5BC6722B0E0C7900990492 /* CustomGradientLayerBackgroundAllPhotos.swift in Sources */,
+				8FE904382B1DC76400E04FF6 /* User.swift in Sources */,
 				8FA09D3B2B05094B005D62B8 /* GalleryAllPhotosPresenterImpl.swift in Sources */,
 				8FD38C0C2B11FD1B0097ED01 /* UIVIew + .swift in Sources */,
 				8FFF2D002B0FBDC700BF34C8 /* LoginViewControllerImpl.swift in Sources */,
@@ -457,7 +478,10 @@
 				8F7E793F2B11EC4E00DE3D7C /* RegistrationViewControllerImpl.swift in Sources */,
 				8FFF2D022B0FD01700BF34C8 /* CustomGradientLayerBackgroundAuth.swift in Sources */,
 				8FD2F2332B17EE6E00AA68BD /* LoginPresenterImpl.swift in Sources */,
+				8FE9043E2B1DC7B900E04FF6 /* AuthResponceEnum.swift in Sources */,
 				8FA09D372B050923005D62B8 /* GalleryAllPhotosViewControllerImpl.swift in Sources */,
+				8FE9043A2B1DC78000E04FF6 /* RegistrationField.swift in Sources */,
+				8FE904352B1DC59500E04FF6 /* DatabaseService.swift in Sources */,
 				8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */,
 				8FA09D392B050935005D62B8 /* GalleryAllPhotosModel.swift in Sources */,
 				8FD2F23A2B1877CE00AA68BD /* Coordinator.swift in Sources */,
@@ -613,7 +637,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,7 +665,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

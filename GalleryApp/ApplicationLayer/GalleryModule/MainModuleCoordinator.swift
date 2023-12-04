@@ -21,7 +21,6 @@ final class MainModuleCoordinatorImpl: MainModuleCoordinator {
     
     func start() {
         let view = GalleryAllPhotosViewControllerImpl()
-        
         navigationController.pushViewController(view, animated: true)
     }
 }

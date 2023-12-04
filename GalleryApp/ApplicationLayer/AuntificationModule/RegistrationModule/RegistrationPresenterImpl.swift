@@ -30,7 +30,7 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
             switch result {
                 case .success:
                     self.coordinator.pushMainScreen()
-                    print("success")
+                    print("success registration, u need to confim email")
                 case .error(let error):
                     print(error)
             case .noVerify:

@@ -15,8 +15,8 @@ protocol LoginPresenter: AnyObject {
 final class LoginPresenterImpl: LoginPresenter {
     
     private let service: AuthService
-    private weak var view: LoginViewController?
     private let coordinator: AuthCoordinator
+    private weak var view: LoginViewController?
 
     init(view: LoginViewController,
          service: AuthService,
@@ -32,7 +32,7 @@ final class LoginPresenterImpl: LoginPresenter {
             switch result {
                 case .success:
                     self.coordinator.pushMainScreen()
-                    print("success")
+                    print("success login")
                 case .error(let error):
                     print(error)
                 case .noVerify:
