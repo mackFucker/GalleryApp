@@ -15,7 +15,7 @@ final class AuthService {
     
     private init() {}
     
-    func signup(_ data: RegistrationField,
+    func signUp(_ data: RegistrationField,
                 complition: @escaping (AuthResponce) -> ()) {
         
         Auth.auth().createUser(withEmail: data.email,
@@ -43,7 +43,7 @@ final class AuthService {
         }
     }
     
-    func signin(_ data: RegistrationField,
+    func signIn(_ data: RegistrationField,
                 complition: @escaping (AuthResponce) -> ()) {
         
         Auth.auth().signIn(withEmail: data.email , password: data.password) {
@@ -57,7 +57,7 @@ final class AuthService {
                     if result.user.isEmailVerified {
                         complition(.success(result.user))
                     } else {
-                        self.confimEmail()
+                        self.confirmEmail()
                         complition(.noVerify)
                     }
                 }
@@ -75,7 +75,7 @@ final class AuthService {
         }
     }
     
-    private func confimEmail() {
+    private func confirmEmail() {
         Auth.auth().currentUser?.sendEmailVerification(){ error in
             if error != nil {
                 print(error!.localizedDescription)

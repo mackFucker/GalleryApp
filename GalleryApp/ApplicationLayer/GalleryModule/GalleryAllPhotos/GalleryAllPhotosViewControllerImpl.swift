@@ -6,31 +6,15 @@
 //
 
 import UIKit
+import PhotosUI
 
 protocol GalleryAllPhotosViewController: AnyObject {
     
 }
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
-    let mockDataArray = ["Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault", "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "756038770746465", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "466_634b8d691c6d3", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "images-4", "Wallpaper-New-York-Sky--T_bigapple2_0", "Wallpaper-New-York-Sky--T_bigapple2_0",
-                         "Wallpaper-New-York-Sky--T_bigapple2_0", "maxresdefault" ]
-    
+    private var dataArr = [UIImage]()
     private var presenter: GalleryAllPhotosPresenter?
-    
     
     override func viewDidLoad() {
         
@@ -40,7 +24,7 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
         setupNavigationbar()
     }
@@ -69,18 +53,35 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     }
     
     private func setupNavigationbar() {
-        let button = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"),
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(openAccountInfo))
+        let buttonProfile = UIButton(type: .system)
+        buttonProfile.setImage(UIImage(systemName: "person.crop.circle"), for: .normal)
+        buttonProfile.addTarget(self, action: #selector(openAccountInfo), for: .touchUpInside)
         
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = button
+        let buttonAdd = UIButton(type: .system)
+        buttonAdd.setImage(UIImage(systemName: "plus"), for: .normal)
+        buttonAdd.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+        
+        let buttonProfileBar = UIBarButtonItem(customView: buttonProfile)
+        let buttonAddBar = UIBarButtonItem(customView: buttonAdd)
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItems = [buttonProfileBar, buttonAddBar]
         self.navigationItem.hidesBackButton = true
     }
-
+    
     @objc
     private func openAccountInfo() {
         print("openAccountInfo")
+        print(self.dataArr)
+    }
+    
+    @objc
+    private func openImagePicker(_ sender: UIButton) {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 50
+        
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        self.present(picker, animated: true)
     }
 }
 
@@ -88,7 +89,7 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        navigationController?.pushViewController(GalleryFullScreenViewControllerImpl(mockDataArray: mockDataArray,
+        navigationController?.pushViewController(GalleryFullScreenViewControllerImpl(mockDataArray: dataArr,
                                                                                      index: CGFloat(indexPath.row)),
                                                  animated: true)
     }
@@ -100,14 +101,14 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllPhotosCell.identifier,
                                                       for: indexPath as IndexPath) as! AllPhotosCell
-        cell.setupPhoto(mockDataArray[indexPath.row])
+        cell.setupPhoto(dataArr[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-
-        return mockDataArray.count
+        
+        return dataArr.count
     }
 }
 
@@ -116,7 +117,7 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = view.frame.width / 4 - 2 
+        let size = view.frame.width / 4 - 2
         return CGSize(width: size,
                       height: size)
     }
@@ -129,6 +130,25 @@ extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegateFlowLayout
                             left: 1,
                             bottom: 1,
                             right: 1)
+    }
+}
+
+extension GalleryAllPhotosViewControllerImpl: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController,
+                didFinishPicking results: [PHPickerResult]) {
+
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+                if let image = object as? UIImage {
+                    self.dataArr.append(image)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+       
+        dismiss(animated: true)
     }
 }
 

@@ -26,15 +26,15 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
     }
     
     func signup(data: RegistrationField) {
-        service.signup(data) { result in
+        service.signUp(data) { result in
             switch result {
-                case .success:
+                case .success(let user):
                     self.coordinator.pushMainScreen()
-                    print("success registration, u need to confim email")
+                    print("success registration, u need to confirm email")
                 case .error(let error):
                     print(error)
-            case .noVerify:
-                print("No verify firebase")
+                case .noVerify:
+                    print("No verify firebase")
             }
         }
     }

@@ -28,9 +28,9 @@ final class LoginPresenterImpl: LoginPresenter {
     }
     
     func signin(data: RegistrationField) {
-        service.signin(data) { result in
+        service.signIn(data) { result in
             switch result {
-                case .success:
+                case .success(let user):
                     self.coordinator.pushMainScreen()
                     print("success login")
                 case .error(let error):

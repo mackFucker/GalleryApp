@@ -8,9 +8,9 @@
 import UIKit
 
 final class GalleryFullScreenViewControllerImpl: UIViewController {
-    var mockDataArray: [String] = []
+    var mockDataArray: [UIImage] = []
     
-    init(mockDataArray: [String],
+    init(mockDataArray: [UIImage],
          index: CGFloat) {
         
         super.init(nibName: nil, bundle: nil)
