@@ -22,8 +22,8 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
         //FIXME:
 
-        let coordinator = MainModuleCoordinatorImpl(navigationController: navController)
-//        let coordinator = AuthModuleCoordinator(navigationController: navController)
+//        let coordinator = MainModuleCoordinatorImpl(navigationController: navController)
+        let coordinator = AuthModuleCoordinator(navigationController: navController)
         coordinate(to: coordinator)
     }
 }

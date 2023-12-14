@@ -141,6 +141,8 @@ extension GalleryAllPhotosViewControllerImpl: PHPickerViewControllerDelegate {
             result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
                 if let image = object as? UIImage {
                     self.dataArr.append(image)
+                    
+                    // вызывать добавление в облако
                 }
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
