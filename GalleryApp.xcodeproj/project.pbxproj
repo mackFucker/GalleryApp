@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F5B3B5A2B540C79000AFB45 /* FirebaseAuthUser +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B3B592B540C78000AFB45 /* FirebaseAuthUser +.swift */; };
 		8F5DFFA92B536D9F00250C8B /* CustomGradientLayerBackgroundAllPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF782B536D9F00250C8B /* CustomGradientLayerBackgroundAllPhotos.swift */; };
 		8F5DFFAA2B536D9F00250C8B /* CustomGradientLayerBackgroundAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF792B536D9F00250C8B /* CustomGradientLayerBackgroundAuth.swift */; };
 		8F5DFFAB2B536D9F00250C8B /* CustomGradientLayerSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF7A2B536D9F00250C8B /* CustomGradientLayerSpot.swift */; };
@@ -19,7 +20,6 @@
 		8F5DFFB22B536D9F00250C8B /* UIVIew + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF842B536D9F00250C8B /* UIVIew + .swift */; };
 		8F5DFFB32B536D9F00250C8B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF872B536D9F00250C8B /* StorageService.swift */; };
 		8F5DFFB42B536D9F00250C8B /* RegistrationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF892B536D9F00250C8B /* RegistrationField.swift */; };
-		8F5DFFB52B536D9F00250C8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF8A2B536D9F00250C8B /* User.swift */; };
 		8F5DFFB62B536D9F00250C8B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF8B2B536D9F00250C8B /* Photo.swift */; };
 		8F5DFFB72B536D9F00250C8B /* AuthResponceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF8C2B536D9F00250C8B /* AuthResponceEnum.swift */; };
 		8F5DFFB82B536D9F00250C8B /* AuthResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF8D2B536D9F00250C8B /* AuthResponce.swift */; };
@@ -76,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F5B3B592B540C78000AFB45 /* FirebaseAuthUser +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseAuthUser +.swift"; sourceTree = "<group>"; };
 		8F5DFF782B536D9F00250C8B /* CustomGradientLayerBackgroundAllPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackgroundAllPhotos.swift; sourceTree = "<group>"; };
 		8F5DFF792B536D9F00250C8B /* CustomGradientLayerBackgroundAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerBackgroundAuth.swift; sourceTree = "<group>"; };
 		8F5DFF7A2B536D9F00250C8B /* CustomGradientLayerSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGradientLayerSpot.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		8F5DFF842B536D9F00250C8B /* UIVIew + .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew + .swift"; sourceTree = "<group>"; };
 		8F5DFF872B536D9F00250C8B /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		8F5DFF892B536D9F00250C8B /* RegistrationField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationField.swift; sourceTree = "<group>"; };
-		8F5DFF8A2B536D9F00250C8B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F5DFF8B2B536D9F00250C8B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8F5DFF8C2B536D9F00250C8B /* AuthResponceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponceEnum.swift; sourceTree = "<group>"; };
 		8F5DFF8D2B536D9F00250C8B /* AuthResponce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponce.swift; sourceTree = "<group>"; };
@@ -201,6 +201,7 @@
 			children = (
 				8F5DFF832B536D9F00250C8B /* UIColor + .swift */,
 				8F5DFF842B536D9F00250C8B /* UIVIew + .swift */,
+				8F5B3B592B540C78000AFB45 /* FirebaseAuthUser +.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				8F5DFF892B536D9F00250C8B /* RegistrationField.swift */,
-				8F5DFF8A2B536D9F00250C8B /* User.swift */,
 				8F5DFF8B2B536D9F00250C8B /* Photo.swift */,
 				8F5DFF8C2B536D9F00250C8B /* AuthResponceEnum.swift */,
 				8F5DFF8D2B536D9F00250C8B /* AuthResponce.swift */,
@@ -482,7 +482,6 @@
 				8F5DFFBE2B536D9F00250C8B /* AuthModuleCoordinator.swift in Sources */,
 				8F5DFFAF2B536D9F00250C8B /* UIlogoLabel.swift in Sources */,
 				8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */,
-				8F5DFFB52B536D9F00250C8B /* User.swift in Sources */,
 				8F5DFFC12B536D9F00250C8B /* MainModuleCoordinator.swift in Sources */,
 				8F5DFFB72B536D9F00250C8B /* AuthResponceEnum.swift in Sources */,
 				8F5DFFB42B536D9F00250C8B /* RegistrationField.swift in Sources */,
@@ -492,6 +491,7 @@
 				8F5DFFBB2B536D9F00250C8B /* CheckField.swift in Sources */,
 				8F5DFFB62B536D9F00250C8B /* Photo.swift in Sources */,
 				8F5DFFAD2B536D9F00250C8B /* UIButtonAuth.swift in Sources */,
+				8F5B3B5A2B540C79000AFB45 /* FirebaseAuthUser +.swift in Sources */,
 				8F5DFFAA2B536D9F00250C8B /* CustomGradientLayerBackgroundAuth.swift in Sources */,
 				8F5DFFC22B536D9F00250C8B /* ViewController.swift in Sources */,
 				8F5DFFBC2B536D9F00250C8B /* LoginViewControllerImpl.swift in Sources */,

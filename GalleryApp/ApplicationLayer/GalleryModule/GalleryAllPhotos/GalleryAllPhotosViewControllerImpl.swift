@@ -137,11 +137,14 @@ extension GalleryAllPhotosViewControllerImpl: PHPickerViewControllerDelegate {
                 didFinishPicking results: [PHPickerResult]) {
 
         for result in results {
-            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object,
+                error in
                 if let image = object as? UIImage {
                     self.dataArr.append(image)
                     
-                    // вызывать добавление в облако
+                    Task {
+                        await self.presenter.uploadToTheStorage(image)
+                    }
                 }
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()

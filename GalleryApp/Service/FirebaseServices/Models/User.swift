@@ -6,15 +6,7 @@
 //
 
 import Foundation
-extension User {
-    var representation: [String: Any] {
-        var repres = [String: Any]()
-        repres["id"] = self.uid
-        repres["email"] = self.email
-        
-        return repres
-    }
-}
+
 //FIXME: убрать
 
 //struct User: Identifiable {

@@ -20,9 +20,6 @@ final class AppCoordinator: Coordinator {
         navController.navigationBar.tintColor = .warmPink
         window.rootViewController = navController
         window.makeKeyAndVisible()
-        //FIXME:
-
-//        let coordinator = MainModuleCoordinatorImpl(navigationController: navController)
         let coordinator = AuthModuleCoordinator(navigationController: navController)
         coordinate(to: coordinator)
     }

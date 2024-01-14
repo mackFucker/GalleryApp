@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 protocol MainModuleCoordinator: Coordinator, AnyObject {
-//    func pushMainScreen()
+    
 }
 
 final class MainModuleCoordinatorImpl: MainModuleCoordinator {
@@ -27,7 +27,8 @@ final class MainModuleCoordinatorImpl: MainModuleCoordinator {
     func start() {
         let view = GalleryAllPhotosViewControllerImpl()
         let presenter = GalleryAllPhotosPresenterImpl(view: view,
-                                                      user: user)
+                                                      user: user,
+                                                      service: StorageService.share)
         view.presenter = presenter
         navigationController.pushViewController(view,
                                                 animated: true)

@@ -11,9 +11,8 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
-typealias User = FirebaseAuth.User
-
 final class StorageService {
+    static let share = StorageService()
     
     private let db = Firestore.firestore()
     private init () { }
@@ -23,13 +22,15 @@ final class StorageService {
     //при запуcке приложения достаем все из этой папки
     
     //должны быть какая-то функция для выгрузки фото в хранилище
-    func uploadImages(user: User) -> Photo {
-        return Photo(id: "uploadImages")
+    func downloadFromTheStorage() {
+        print("downloadFromTheStorage")
     }
     
-    func saveImage(user: User,
+    func uploadToTheStorage(user: User,
                    photo: Photo,
                    image: UIImage) async -> Bool {
+        
+        print("uploadToTheStorage")
         
         let userID = user.uid
         let photoName = UUID().uuidString
@@ -54,8 +55,7 @@ final class StorageService {
                 let imageURl = try await storageRef.downloadURL()
                 imageURlSTring = "\(imageURl)"
             }
-            catch
-            {
+            catch {
                 print("ERROR: Could not get imageURL after saving image")
                 return false
             }
