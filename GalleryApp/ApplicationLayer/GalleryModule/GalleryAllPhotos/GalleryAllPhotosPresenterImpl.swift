@@ -8,15 +8,18 @@
 import Foundation
 
 protocol GalleryAllPhotosPresenter: AnyObject {
-    init(view: GalleryAllPhotosViewController)
+    init(view: GalleryAllPhotosViewController,
+         user: User)
 }
 
 final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
-    unowned let view: GalleryAllPhotosViewController
+    weak var view: GalleryAllPhotosViewController?
+    var user: User
 //    private let photos: [Photo]
-    
-    init(view: GalleryAllPhotosViewController) {
+    init(view: GalleryAllPhotosViewController,
+         user: User) {
+        
         self.view = view
-//        self.photos = photos
+        self.user = user
     }
 }

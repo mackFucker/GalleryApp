@@ -139,9 +139,7 @@ final class LoginViewControllerImpl: UIViewController {
     @objc
     private func login() {
         if succssesed {
-            print(loginTextField.text!)
-            
-            presenter.signin(data: .init(email: loginTextField.text!,
+            presenter.signIn(data: .init(email: loginTextField.text!,
                                          password: passwordTextField.text!))
         }
     }

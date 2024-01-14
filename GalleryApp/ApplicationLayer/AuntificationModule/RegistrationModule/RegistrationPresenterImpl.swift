@@ -12,7 +12,6 @@ protocol RegistrationPresenter: AnyObject {
 }
 
 final class RegistrationPresenterImpl: RegistrationPresenter {
-    
     private let service: AuthService
     private weak var view: RegistrationViewController?
     private let coordinator: AuthCoordinator
@@ -23,13 +22,15 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
         self.view = view
         self.service = service
         self.coordinator = coordinator
+        
     }
     
     func signup(data: RegistrationField) {
         service.signUp(data) { result in
             switch result {
-                case .success(let user):
-                    self.coordinator.pushMainScreen()
+                case .success(let _):
+//                    self.coordinator.pushMainScreen()
+                //FIXME: убрать коммент
                     print("success registration, u need to confirm email")
                 case .error(let error):
                     print(error)

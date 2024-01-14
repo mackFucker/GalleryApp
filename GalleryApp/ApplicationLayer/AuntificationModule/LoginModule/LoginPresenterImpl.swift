@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginPresenter: AnyObject {
-    func signin(data: RegistrationField)
+    func signIn(data: RegistrationField)
     func registrateOpen()
 }
 
@@ -27,11 +27,11 @@ final class LoginPresenterImpl: LoginPresenter {
         self.coordinator = coordinator
     }
     
-    func signin(data: RegistrationField) {
+    func signIn(data: RegistrationField) {
         service.signIn(data) { result in
             switch result {
                 case .success(let user):
-                    self.coordinator.pushMainScreen()
+                    self.coordinator.pushMainScreen(user: user)
                     print("success login")
                 case .error(let error):
                     print(error)

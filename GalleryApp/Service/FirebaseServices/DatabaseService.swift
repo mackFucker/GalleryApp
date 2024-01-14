@@ -21,7 +21,7 @@ final class DatabaseService {
     func setupUser(_ user: User,
                    complition: @escaping (Result<User, Error>) -> ()) {
         
-        usersRef.document(user.id).setData(user.representation) { error in
+        usersRef.document(user.uid).setData(user.representation) { error in
             if let error = error {
                 print(error)
                 complition(.failure(error))

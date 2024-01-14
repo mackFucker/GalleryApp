@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol AuthCoordinator: Coordinator, AnyObject {
-    func pushMainScreen()
+    func pushMainScreen(user: User)
     func registrationOpen()
 }
 
@@ -39,8 +40,9 @@ final class AuthModuleCoordinator: AuthCoordinator {
         navigationController.pushViewController(registrationView, animated: true)
     }
     
-    func pushMainScreen() {
-        let coordinator = MainModuleCoordinatorImpl(navigationController: navigationController)
+    func pushMainScreen(user: User) {
+        let coordinator = MainModuleCoordinatorImpl(navigationController: navigationController,
+                                                    user: user)
         coordinate(to: coordinator)
     }
 }

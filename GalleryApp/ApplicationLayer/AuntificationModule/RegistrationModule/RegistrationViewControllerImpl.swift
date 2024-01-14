@@ -13,7 +13,6 @@ protocol RegistrationViewController: AnyObject {
 
 final class RegistrationViewControllerImpl: UIViewController {
     private let check = CheckField.shared
-    
     private let logoLabelY: CGFloat = 10
     private var textFieldWidth: CGFloat!
     private var succssesed = false

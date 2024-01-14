@@ -14,12 +14,11 @@ protocol GalleryAllPhotosViewController: AnyObject {
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
     private var dataArr = [UIImage]()
-    private var presenter: GalleryAllPhotosPresenter?
+    var presenter: GalleryAllPhotosPresenter!
     
     override func viewDidLoad() {
         
         setupView()
-        presenter = GalleryAllPhotosPresenterImpl(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

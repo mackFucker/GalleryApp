@@ -25,18 +25,16 @@ final class AuthService {
             }
             else {
                 if result != nil {
-                    let user = User(id: result!.user.uid,
-                                    name: data.name!,
-                                    email: data.email)
-                    
+                    let user = result!.user
+ 
                     dbService.setupUser(user) { resultDB in
                         switch resultDB {
-                            case .success(let user):
-                                complition(.success(result!.user))
-                                print(user)
-                            case .failure(_):
-                                complition(.noVerify)
-                            }
+                        case .success(let user):
+                            complition(.success(result!.user))
+                            print(user)
+                        case .failure(_):
+                            complition(.noVerify)
+                        }
                     }
                 }
             }

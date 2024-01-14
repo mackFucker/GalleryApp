@@ -9,6 +9,9 @@ import UIKit
 import Foundation
 import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
+
+typealias User = FirebaseAuth.User
 
 final class StorageService {
     
@@ -17,18 +20,18 @@ final class StorageService {
     
     //после реги выделяем папку под пользователя вызывается единожды при регистрации
     
-    
-    //при запучке приложения достаем все из этой папки
-    
+    //при запуcке приложения достаем все из этой папки
     
     //должны быть какая-то функция для выгрузки фото в хранилище
-    
+    func uploadImages(user: User) -> Photo {
+        return Photo(id: "uploadImages")
+    }
     
     func saveImage(user: User,
                    photo: Photo,
                    image: UIImage) async -> Bool {
         
-        let userID = user.id
+        let userID = user.uid
         let photoName = UUID().uuidString
         
         let storage = Storage.storage()
