@@ -3,4 +3,54 @@
    uuid = "2D03FBC0-4C53-46EF-994A-FFAE6EEE8687"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4297B5F-2E0E-4A89-8E6E-E1851A2C5BB0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../GalleryApp/GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(view:user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F4297B5F-2E0E-4A89-8E6E-E1851A2C5BB0 - 213c824a8d725deb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GalleryApp.GalleryAllPhotosPresenterImpl.init(view: GalleryApp.GalleryAllPhotosViewController, user: __C.FIRUser) -&gt; GalleryApp.GalleryAllPhotosPresenterImpl"
+                  moduleName = "GalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/%F0%9F%A5%BA%F0%9F%A5%BA%F0%9F%A5%BA/GalleryApp/GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "F4297B5F-2E0E-4A89-8E6E-E1851A2C5BB0 - 213c824a8d725deb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GalleryApp.GalleryAllPhotosPresenterImpl.init(view: GalleryApp.GalleryAllPhotosViewController, user: __C.FIRUser) -&gt; GalleryApp.GalleryAllPhotosPresenterImpl"
+                  moduleName = "GalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/%F0%9F%A5%BA%F0%9F%A5%BA%F0%9F%A5%BA/GalleryApp/GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "268">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

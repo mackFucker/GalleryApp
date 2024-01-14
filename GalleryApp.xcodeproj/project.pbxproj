@@ -32,7 +32,6 @@
 		8F7060312B535ADB00B96B15 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F70600B2B535ADA00B96B15 /* Coordinator.swift */; };
 		8F7060322B535ADB00B96B15 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F70600E2B535ADA00B96B15 /* StorageService.swift */; };
 		8F7060332B535ADB00B96B15 /* RegistrationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060102B535ADA00B96B15 /* RegistrationField.swift */; };
-		8F7060342B535ADB00B96B15 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060112B535ADA00B96B15 /* User.swift */; };
 		8F7060352B535ADB00B96B15 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060122B535ADA00B96B15 /* Photo.swift */; };
 		8F7060362B535ADB00B96B15 /* AuthResponceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060132B535ADA00B96B15 /* AuthResponceEnum.swift */; };
 		8F7060372B535ADB00B96B15 /* AuthResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060142B535ADA00B96B15 /* AuthResponce.swift */; };
@@ -41,6 +40,7 @@
 		8F70603A2B535ADB00B96B15 /* CheckField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060172B535ADB00B96B15 /* CheckField.swift */; };
 		8F70603B2B535ADB00B96B15 /* UIColor + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7060192B535ADB00B96B15 /* UIColor + .swift */; };
 		8F70603C2B535ADB00B96B15 /* UIVIew + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F70601A2B535ADB00B96B15 /* UIVIew + .swift */; };
+		8F70603E2B535DF600B96B15 /* FirebaseAuthUser +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F70603D2B535DF600B96B15 /* FirebaseAuthUser +.swift */; };
 		8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA55FB02AFD00EA007FEF74 /* AppDelegate.swift */; };
 		8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */; };
 		8FA55FBA2AFD00EB007FEF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA55FB92AFD00EB007FEF74 /* Assets.xcassets */; };
@@ -101,7 +101,6 @@
 		8F70600B2B535ADA00B96B15 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8F70600E2B535ADA00B96B15 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		8F7060102B535ADA00B96B15 /* RegistrationField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationField.swift; sourceTree = "<group>"; };
-		8F7060112B535ADA00B96B15 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F7060122B535ADA00B96B15 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8F7060132B535ADA00B96B15 /* AuthResponceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponceEnum.swift; sourceTree = "<group>"; };
 		8F7060142B535ADA00B96B15 /* AuthResponce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponce.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		8F7060172B535ADB00B96B15 /* CheckField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckField.swift; sourceTree = "<group>"; };
 		8F7060192B535ADB00B96B15 /* UIColor + .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + .swift"; sourceTree = "<group>"; };
 		8F70601A2B535ADB00B96B15 /* UIVIew + .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew + .swift"; sourceTree = "<group>"; };
+		8F70603D2B535DF600B96B15 /* FirebaseAuthUser +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseAuthUser +.swift"; sourceTree = "<group>"; };
 		8FA55FAD2AFD00EA007FEF74 /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA55FB02AFD00EA007FEF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				8F7060102B535ADA00B96B15 /* RegistrationField.swift */,
-				8F7060112B535ADA00B96B15 /* User.swift */,
 				8F7060122B535ADA00B96B15 /* Photo.swift */,
 				8F7060132B535ADA00B96B15 /* AuthResponceEnum.swift */,
 				8F7060142B535ADA00B96B15 /* AuthResponce.swift */,
@@ -322,6 +321,7 @@
 			children = (
 				8F7060192B535ADB00B96B15 /* UIColor + .swift */,
 				8F70601A2B535ADB00B96B15 /* UIVIew + .swift */,
+				8F70603D2B535DF600B96B15 /* FirebaseAuthUser +.swift */,
 			);
 			name = Extensions;
 			path = ../../../GalleryApp/GalleryApp/Extensions;
@@ -480,7 +480,6 @@
 				8F7060272B535ADB00B96B15 /* RegistrationViewControllerImpl.swift in Sources */,
 				8F70602F2B535ADB00B96B15 /* GalleryAllPhotosModel.swift in Sources */,
 				8F70601E2B535ADB00B96B15 /* CustomGradientLayerBackground.swift in Sources */,
-				8F7060342B535ADB00B96B15 /* User.swift in Sources */,
 				8F7060362B535ADB00B96B15 /* AuthResponceEnum.swift in Sources */,
 				8F7060202B535ADB00B96B15 /* UITextFieldAuth.swift in Sources */,
 				8F70603C2B535ADB00B96B15 /* UIVIew + .swift in Sources */,
@@ -506,6 +505,7 @@
 				8F70601C2B535ADB00B96B15 /* CustomGradientLayerBackgroundAuth.swift in Sources */,
 				8F70602A2B535ADB00B96B15 /* AllPhotosCell.swift in Sources */,
 				8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */,
+				8F70603E2B535DF600B96B15 /* FirebaseAuthUser +.swift in Sources */,
 				8F7060292B535ADB00B96B15 /* ViewController.swift in Sources */,
 				8F70601D2B535ADB00B96B15 /* CustomGradientLayerSpot.swift in Sources */,
 			);
