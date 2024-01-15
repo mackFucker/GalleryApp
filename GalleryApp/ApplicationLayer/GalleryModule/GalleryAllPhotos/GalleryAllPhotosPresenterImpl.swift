@@ -13,7 +13,7 @@ protocol GalleryAllPhotosPresenter: AnyObject {
          user: User,
          service: StorageService)
     func uploadToTheStorage(_ image: UIImage) async
-    func downloadFromTheStorage()
+    func downloadFromTheStorage() async -> [UIImage]
 }
 
 final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
@@ -36,7 +36,16 @@ final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
                                    image: image)
     }
     
-    func downloadFromTheStorage() {
-        service.downloadFromTheStorage()
+    func downloadFromTheStorage() async -> [UIImage] {
+        var data = [UIImage]()
+        do {
+            print("succeeded download")
+            data = try await service.downloadFromTheStorage(user: user)
+            return data
+        }
+        catch {
+            print("error download")
+            return data
+        }
     }
 }

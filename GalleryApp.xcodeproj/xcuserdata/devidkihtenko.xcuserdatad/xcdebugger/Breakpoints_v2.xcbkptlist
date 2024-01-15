@@ -3,4 +3,54 @@
    uuid = "2D03FBC0-4C53-46EF-994A-FFAE6EEE8687"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C70542C-A68F-499E-AEC5-C807BBF54405"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "downloadFromTheStorage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2C70542C-A68F-499E-AEC5-C807BBF54405 - b6010b8b2a9a1827"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for GalleryApp.GalleryAllPhotosPresenterImpl.downloadFromTheStorage() async -&gt; Swift.Array&lt;__C.UIImage&gt;"
+                  moduleName = "GalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/GalleryApp%2004.01.09/GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "2C70542C-A68F-499E-AEC5-C807BBF54405 - fffa1711629eb224"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for GalleryApp.GalleryAllPhotosPresenterImpl.downloadFromTheStorage() async -&gt; Swift.Array&lt;__C.UIImage&gt;"
+                  moduleName = "GalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/GalleryApp%2004.01.09/GalleryApp/ApplicationLayer/GalleryModule/GalleryAllPhotos/GalleryAllPhotosPresenterImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "348">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

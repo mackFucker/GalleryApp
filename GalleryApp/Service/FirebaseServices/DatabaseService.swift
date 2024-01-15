@@ -24,7 +24,7 @@ final class DatabaseService {
         usersRef.document(user.uid).setData(user.representation) { error in
             if let error = error {
                 print(error)
-                complition(.failure(error))
+                complition(.failure(error as! Error))
             }
             else {
                 complition(.success(user))

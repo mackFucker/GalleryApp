@@ -18,6 +18,14 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     override func viewDidLoad() {
         
+        Task {
+            dataArr = await presenter.downloadFromTheStorage()
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+       
         setupView()
     }
     
