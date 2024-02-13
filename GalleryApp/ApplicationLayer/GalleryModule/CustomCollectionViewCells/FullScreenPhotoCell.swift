@@ -40,7 +40,6 @@ final class FullScreenPhotoCell: UICollectionViewCell {
     
     func setupPhoto(_ photo: UIImage) {
         imageView.image = photo
-//        imageView.image = (UIImage(named: photo) ?? UIImage(systemName: "photo"))!
     }
     
     private func setup() {

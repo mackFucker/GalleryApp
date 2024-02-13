@@ -11,23 +11,37 @@ import UIKit
 protocol GalleryAllPhotosPresenter: AnyObject {
     init(view: GalleryAllPhotosViewController,
          user: User,
-         service: StorageService)
+         service: StorageService,
+         coordinator: MainModuleCoordinator)
     func uploadToTheStorage(_ image: UIImage) async
     func downloadFromTheStorage() async -> [UIImage]
+    func openToFullScreen(data: [UIImage],
+                          index: Int)
 }
 
 final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
+    
     weak var view: GalleryAllPhotosViewController?
+    
     private let user: User
     private let service: StorageService
+    private let coordinator: MainModuleCoordinator
 
     init(view: GalleryAllPhotosViewController,
          user: User,
-         service: StorageService) {
+         service: StorageService,
+         coordinator: MainModuleCoordinator) {
         
         self.view = view
         self.user = user
         self.service = service
+        self.coordinator = coordinator
+    }
+    
+    func openToFullScreen(data: [UIImage],
+                          index: Int) {
+        coordinator.pushToFullScreen(data: data,
+                                     index: index)
     }
     
     func uploadToTheStorage(_ image: UIImage) async {
@@ -40,7 +54,8 @@ final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
         var data = [UIImage]()
         do {
             print("succeeded download")
-            data = try await service.downloadFromTheStorage(user: user)
+            data = try await service.downloadFormDataBase(user: user)
+
             return data
         }
         catch {

@@ -32,7 +32,6 @@
 		8F5DFFBF2B536D9F00250C8B /* RegistrationPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF982B536D9F00250C8B /* RegistrationPresenterImpl.swift */; };
 		8F5DFFC02B536D9F00250C8B /* RegistrationViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF992B536D9F00250C8B /* RegistrationViewControllerImpl.swift */; };
 		8F5DFFC12B536D9F00250C8B /* MainModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF9B2B536D9F00250C8B /* MainModuleCoordinator.swift */; };
-		8F5DFFC22B536D9F00250C8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF9D2B536D9F00250C8B /* ViewController.swift */; };
 		8F5DFFC32B536D9F00250C8B /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF9E2B536D9F00250C8B /* AllPhotosCell.swift */; };
 		8F5DFFC42B536D9F00250C8B /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFF9F2B536D9F00250C8B /* FullScreenPhotoCell.swift */; };
 		8F5DFFC52B536D9F00250C8B /* GalleryFullScreenViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFFA12B536D9F00250C8B /* GalleryFullScreenViewControllerImpl.swift */; };
@@ -101,7 +100,6 @@
 		8F5DFF982B536D9F00250C8B /* RegistrationPresenterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterImpl.swift; sourceTree = "<group>"; };
 		8F5DFF992B536D9F00250C8B /* RegistrationViewControllerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerImpl.swift; sourceTree = "<group>"; };
 		8F5DFF9B2B536D9F00250C8B /* MainModuleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModuleCoordinator.swift; sourceTree = "<group>"; };
-		8F5DFF9D2B536D9F00250C8B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8F5DFF9E2B536D9F00250C8B /* AllPhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
 		8F5DFF9F2B536D9F00250C8B /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
 		8F5DFFA12B536D9F00250C8B /* GalleryFullScreenViewControllerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryFullScreenViewControllerImpl.swift; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 		8F5DFF9C2B536D9F00250C8B /* CustomCollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				8F5DFF9D2B536D9F00250C8B /* ViewController.swift */,
 				8F5DFF9E2B536D9F00250C8B /* AllPhotosCell.swift */,
 				8F5DFF9F2B536D9F00250C8B /* FullScreenPhotoCell.swift */,
 			);
@@ -493,7 +490,6 @@
 				8F5DFFAD2B536D9F00250C8B /* UIButtonAuth.swift in Sources */,
 				8F5B3B5A2B540C79000AFB45 /* FirebaseAuthUser +.swift in Sources */,
 				8F5DFFAA2B536D9F00250C8B /* CustomGradientLayerBackgroundAuth.swift in Sources */,
-				8F5DFFC22B536D9F00250C8B /* ViewController.swift in Sources */,
 				8F5DFFBC2B536D9F00250C8B /* LoginViewControllerImpl.swift in Sources */,
 				8F5DFFCA2B536D9F00250C8B /* Coordinator.swift in Sources */,
 				8F5DFFC02B536D9F00250C8B /* RegistrationViewControllerImpl.swift in Sources */,

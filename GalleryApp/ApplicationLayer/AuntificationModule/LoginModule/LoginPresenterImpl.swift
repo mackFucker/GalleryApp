@@ -32,10 +32,10 @@ final class LoginPresenterImpl: LoginPresenter {
             switch result {
                 case .success(let user):
                     self.coordinator.pushMainScreen(user: user)
-                    print("success login")
                 case .error(let error):
                     print(error)
                 case .noVerify:
+                self.view?.showAlert(error: "Verify your account on mail")
                     print("No verify firebase")
             }
         }

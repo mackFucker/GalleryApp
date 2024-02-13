@@ -34,8 +34,8 @@ final class AuthModuleCoordinator: AuthCoordinator {
     func registrationOpen() {
         let registrationView = RegistrationViewControllerImpl()
         let presenter = RegistrationPresenterImpl(view: registrationView,
-                                                        service: AuthService.shared,
-                                                        coordinator: self)
+                                                  service: AuthService.shared,
+                                                  coordinator: self)
         registrationView.presenter = presenter
         navigationController.pushViewController(registrationView, animated: true)
     }

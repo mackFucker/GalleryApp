@@ -9,7 +9,8 @@ import UIKit
 import FirebaseAuth
 
 protocol MainModuleCoordinator: Coordinator, AnyObject {
-    
+    func pushToFullScreen(data: [UIImage],
+                          index: Int)
 }
 
 final class MainModuleCoordinatorImpl: MainModuleCoordinator {
@@ -24,11 +25,21 @@ final class MainModuleCoordinatorImpl: MainModuleCoordinator {
         self.user = user
     }
     
+    func pushToFullScreen(data: [UIImage],
+                          index: Int) {
+        let view = GalleryFullScreenViewControllerImpl(mockDataArray: data,
+                                                       index: index)
+        
+        navigationController.pushViewController(view,
+                                                animated: true)
+    }
+    
     func start() {
         let view = GalleryAllPhotosViewControllerImpl()
         let presenter = GalleryAllPhotosPresenterImpl(view: view,
                                                       user: user,
-                                                      service: StorageService.share)
+                                                      service: StorageService.share,
+                                                      coordinator: self)
         view.presenter = presenter
         navigationController.pushViewController(view,
                                                 animated: true)

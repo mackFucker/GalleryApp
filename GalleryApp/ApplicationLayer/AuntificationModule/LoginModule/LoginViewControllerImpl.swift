@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewController: AnyObject {
-    
+    func showAlert(error: String)
 }
 
 final class LoginViewControllerImpl: UIViewController {
@@ -177,6 +177,7 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
             check.validField(passwordTextField, fieldType: .password)
         }
         
+        //FIXME: убрать дерьмо ---------
         UIView.animate(withDuration: 0.2, delay: 0.2) {
             let views = self.stackWithTextFields.arrangedSubviews
             self.succssesed = !views.contains { $0.backgroundColor != .softGreen }
@@ -202,6 +203,16 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
 }
 
 extension LoginViewControllerImpl: LoginViewController {
-    
+    func showAlert(error: String) {
+        let alert = UIAlertController(title: "Error",
+                                      message: error,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default,
+                                      handler: nil))
+        Task.detached { @MainActor in
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 

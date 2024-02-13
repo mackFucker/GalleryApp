@@ -32,7 +32,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false,
+                                                     animated: animated)
         setupNavigationbar()
     }
     
@@ -77,8 +78,6 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
     
     @objc
     private func openAccountInfo() {
-        print("openAccountInfo")
-        print(self.dataArr)
     }
     
     @objc
@@ -95,10 +94,7 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
 extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        
-        navigationController?.pushViewController(GalleryFullScreenViewControllerImpl(mockDataArray: dataArr,
-                                                                                     index: CGFloat(indexPath.row)),
-                                                 animated: true)
+        presenter.openToFullScreen(data: dataArr, index: indexPath.row)
     }
 }
 
@@ -148,14 +144,12 @@ extension GalleryAllPhotosViewControllerImpl: PHPickerViewControllerDelegate {
             result.itemProvider.loadObject(ofClass: UIImage.self) { object,
                 error in
                 if let image = object as? UIImage {
-                    self.dataArr.append(image)
-                    
-                    Task {
+                    Task.detached { @MainActor in
                         await self.presenter.uploadToTheStorage(image)
+                        
+                        self.dataArr = await self.presenter.downloadFromTheStorage()
+                        self.collectionView.reloadData()
                     }
-                }
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
                 }
             }
         }

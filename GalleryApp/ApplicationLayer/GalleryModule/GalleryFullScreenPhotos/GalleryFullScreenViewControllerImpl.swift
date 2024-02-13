@@ -8,16 +8,19 @@
 import UIKit
 
 final class GalleryFullScreenViewControllerImpl: UIViewController {
-    var mockDataArray: [UIImage] = []
+    var data: [UIImage] = []
     
     init(mockDataArray: [UIImage],
-         index: CGFloat) {
-        
+         index: Int) {
         super.init(nibName: nil, bundle: nil)
-
-        self.mockDataArray = mockDataArray
+        
+        self.data = mockDataArray
+        let CGFloatIndex = CGFloat(index)
+        
         let widht = view.frame.width
-        collectionView.contentOffset.x = widht * index + ((index - 1) * 20) + 20
+        collectionView.contentOffset.x = widht * CGFloatIndex
+                                         + ((CGFloatIndex - 1) * 20)
+                                         + 20
     }
     
     required init?(coder: NSCoder) {
@@ -29,11 +32,6 @@ final class GalleryFullScreenViewControllerImpl: UIViewController {
         view.addSubview(collectionView)
         setTransparentNavigationbar()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.navigationBar.tintColor = .warmPink
-//    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -70,7 +68,7 @@ extension GalleryFullScreenViewControllerImpl: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         
-        return mockDataArray.count
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -78,7 +76,7 @@ extension GalleryFullScreenViewControllerImpl: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FullScreenPhotoCell.identifier,
                                                       for: indexPath as IndexPath) as! FullScreenPhotoCell
-        cell.setupPhoto(mockDataArray[indexPath.row])
+        cell.setupPhoto(data[indexPath.row])
         cell.frame.origin.y = collectionView.bounds.origin.y
         return cell
     }

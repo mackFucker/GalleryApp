@@ -11,13 +11,26 @@ import FirebaseFirestore
 
 struct Photo: Identifiable, Codable {
     @DocumentID var id: String?
-    var imageURlSTring = ""
+    var imageURlString = ""
     var description = ""
     var reviewer = Auth.auth().currentUser?.email ?? ""
-    var postrdOn = Date()
+    var postedOn = Date()
+
+    init(){}
+    init(imageURlString: String,
+         description: String,
+         reviewer: String,
+         postedOn: Date) {
+        
+        self.id = id
+        self.imageURlString = imageURlString
+        self.description = description
+        self.reviewer = reviewer
+        self.postedOn = postedOn
+    }
     
     var dictionary: [String: Any] {
-        return ["imageURlSTring": imageURlSTring,
+        return ["imageURlSTring": imageURlString,
                 "description": description,
                 "reviewer": reviewer,
                 "postrdOn": Timestamp(date: Date())]
