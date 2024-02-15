@@ -8,7 +8,8 @@
 import UIKit
 
 protocol LoginViewController: AnyObject {
-    func showAlert(error: String)
+   func showAlert(title: String,
+                  error: String)
 }
 
 final class LoginViewControllerImpl: UIViewController {
@@ -203,8 +204,9 @@ extension LoginViewControllerImpl: UITextFieldDelegate {
 }
 
 extension LoginViewControllerImpl: LoginViewController {
-    func showAlert(error: String) {
-        let alert = UIAlertController(title: "Error",
+    func showAlert(title: String,
+                   error: String) {
+        let alert = UIAlertController(title: title,
                                       message: error,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK",

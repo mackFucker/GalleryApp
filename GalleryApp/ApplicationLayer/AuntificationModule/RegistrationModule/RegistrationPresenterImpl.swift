@@ -28,12 +28,32 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
         service.signUp(data) { result in
             switch result {
                 case .success(let user):
-                    print("success registration, u need to confirm email")
-                    self.view?.confirmEmailAlertShow()
+                self.view?.showAlert(title: "Success registration",
+                                     error: "U need to confirm email, and sign in")
                 case .error(let error):
-                    print(error)
-                case .noVerify:
-                    print("No verify firebase")
+                    switch error {
+                        case .emailAlreadyInUse:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Email already in use.")
+                        case .invalidEmail:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Invalid email.")
+                        case .networkError:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Netwotk error.")
+                        case .credentialAlreadyInUse:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Credential already in use.")
+                        case .weakPassword:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Weak password.")
+                        case .missingEmail:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Missing email.")
+                        default:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Unknown error")
+                    }
             }
         }
     }

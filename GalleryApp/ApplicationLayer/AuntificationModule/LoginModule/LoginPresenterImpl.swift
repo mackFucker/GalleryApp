@@ -33,10 +33,25 @@ final class LoginPresenterImpl: LoginPresenter {
                 case .success(let user):
                     self.coordinator.pushMainScreen(user: user)
                 case .error(let error):
-                    print(error)
-                case .noVerify:
-                self.view?.showAlert(error: "Verify your account on mail")
-                    print("No verify firebase")
+                    switch error {
+                        case .wrongPassword:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Wrong password.")
+                        case .unverifiedEmail:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Unverified email")
+                        
+                        case .invalidEmail:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Invalid email.")
+                        case .networkError:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Netwotk error.")
+
+                        default:
+                            self.view?.showAlert(title: "Error",
+                                                 error: "Unknown error")
+                    }
             }
         }
     }

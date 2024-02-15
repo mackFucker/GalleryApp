@@ -10,9 +10,8 @@ import FirebaseAuth
 
 enum AuthResponce {
     case success(FirebaseAuth.User)
-    
     case error(AuthErrorCode.Code)
-    case noVerify
-    case suchAUserAlreadyExists
-    case connectionError
+//    case noVerify
+//    case suchAUserAlreadyExists
+//    case connectionError
 }

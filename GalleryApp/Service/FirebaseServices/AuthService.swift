@@ -19,8 +19,7 @@ final class AuthService {
                 complition: @escaping (AuthResponce) -> ()) {
         
         Auth.auth().createUser(withEmail: data.email,
-                               password: data.password) { [self] result,
-            error in
+                               password: data.password) { [self] result, error in
             if let error = error as? NSError {
                 complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
             }
@@ -33,7 +32,7 @@ final class AuthService {
                             complition(.success(result!.user))
                             print(user)
                         case .failure(_):
-                            complition(.noVerify)
+                            print("failture create user in DB")
                         }
                     }
                 }
@@ -48,14 +47,15 @@ final class AuthService {
                            password: data.password) { result, error in
             if let error = error as? NSError {
                 complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
+                print(error.code)
             }
             else {
                 if let result = result {
                     if result.user.isEmailVerified {
                         complition(.success(result.user))
                     } else {
+                        complition(.error(AuthErrorCode.Code(rawValue: 17086)!))
                         self.confirmEmail()
-                        complition(.noVerify)
                     }
                 }
             }
@@ -68,12 +68,12 @@ final class AuthService {
             //            complition(.success)
         } catch {
             print("Sign out error")
-            complition(.error(AuthErrorCode.Code(rawValue: 17094)!))
+//            complition(.error(AuthErrorCode.Code(rawValue: 17094)!))
         }
     }
     
     private func confirmEmail() {
-        Auth.auth().currentUser?.sendEmailVerification(){ error in
+        Auth.auth().currentUser?.sendEmailVerification() { error in
             if error != nil {
                 print(error!.localizedDescription)
             }
