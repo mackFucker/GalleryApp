@@ -19,14 +19,14 @@ final class AuthService {
                 complition: @escaping (AuthResponce) -> ()) {
         
         Auth.auth().createUser(withEmail: data.email,
-                               password: data.password) { [self] result, error in
+                               password: data.password) { [self] result,
+            error in
             if let error = error as? NSError {
                 complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
             }
             else {
                 if result != nil {
                     let user = result!.user
- 
                     dbService.setupUser(user) { resultDB in
                         switch resultDB {
                         case .success(let user):
@@ -44,9 +44,8 @@ final class AuthService {
     func signIn(_ data: RegistrationField,
                 complition: @escaping (AuthResponce) -> ()) {
         
-        Auth.auth().signIn(withEmail: data.email , password: data.password) {
-            result, error in
-            
+        Auth.auth().signIn(withEmail: data.email,
+                           password: data.password) { result, error in
             if let error = error as? NSError {
                 complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
             }

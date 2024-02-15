@@ -28,8 +28,8 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
         service.signUp(data) { result in
             switch result {
                 case .success(let user):
-                    self.coordinator.pushMainScreen(user: user)
                     print("success registration, u need to confirm email")
+                    self.view?.confirmEmailAlertShow()
                 case .error(let error):
                     print(error)
                 case .noVerify:

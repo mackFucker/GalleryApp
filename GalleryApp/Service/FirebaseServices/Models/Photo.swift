@@ -33,6 +33,6 @@ struct Photo: Identifiable, Codable {
         return ["imageURlSTring": imageURlString,
                 "description": description,
                 "reviewer": reviewer,
-                "postrdOn": Timestamp(date: Date())]
+                "postedOn": Timestamp(date: Date())]
     }
 }

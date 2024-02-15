@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RegistrationViewController: AnyObject {
-    
+    func confirmEmailAlertShow()
 }
 
 final class RegistrationViewControllerImpl: UIViewController {
@@ -210,5 +210,15 @@ extension RegistrationViewControllerImpl: UITextFieldDelegate {
 }
 
 extension RegistrationViewControllerImpl: RegistrationViewController {
-    
+    func confirmEmailAlertShow() {
+        let alert = UIAlertController(title: "Success!",
+                                      message: "u need to confirm email",
+                                      preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default,
+                                      handler: nil))
+        Task.detached { @MainActor in
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

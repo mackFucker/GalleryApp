@@ -49,7 +49,7 @@ final class StorageService {
         let documents = try await docRef.getDocuments().documents
         
         var outputImages = [UIImage]()
-//        var photoModels = [Photo]()
+        var photoModels = [Photo]()
         
         for doc in documents {
             if doc.exists {
@@ -57,14 +57,14 @@ final class StorageService {
                 let photoData = Photo(imageURlString: dataDictionary["imageURlSTring"] as! String,
                                       description: dataDictionary["description"] as! String,
                                       reviewer: dataDictionary["reviewer"] as! String,
-                                      postedOn: Date())
-                if let data = try? Data(contentsOf: URL(string: photoData.imageURlString)!),
-                    let image = UIImage(data: data) {
-                        outputImages.append(image)
-                    }
+                                      postedOn: dataDictionary["postedOn"] as! Date)
+                                
+                photoModels.append(photoData)
+//                if let data = try? Data(contentsOf: URL(string: photoData.imageURlString)!) {
+//                    print(photoData.imageURlString)
+//                }
                 
-                //            FIXME: remove date hardcode
-                print(photoData)
+                //            FIXME: remove date hardcode and async throws???
             }
             else {
                 print("error")
