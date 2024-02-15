@@ -57,9 +57,10 @@ final class StorageService {
                 let photoData = Photo(imageURlString: dataDictionary["imageURlSTring"] as! String,
                                       description: dataDictionary["description"] as! String,
                                       reviewer: dataDictionary["reviewer"] as! String,
-                                      postedOn: dataDictionary["postedOn"] as! Date)
+                                      postedOn: Date())
                                 
                 photoModels.append(photoData)
+                outputImages.append(UIImage(data: try Data(contentsOf: URL(string: photoData.imageURlString)!))!)
 //                if let data = try? Data(contentsOf: URL(string: photoData.imageURlString)!) {
 //                    print(photoData.imageURlString)
 //                }

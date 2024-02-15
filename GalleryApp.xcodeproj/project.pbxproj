@@ -247,8 +247,8 @@
 		8F5DFF922B536D9F00250C8B /* AuntificationModule */ = {
 			isa = PBXGroup;
 			children = (
-				8F5DFF932B536D9F00250C8B /* LoginModule */,
 				8F5DFF962B536D9F00250C8B /* AuthModuleCoordinator.swift */,
+				8F5DFF932B536D9F00250C8B /* LoginModule */,
 				8F5DFF972B536D9F00250C8B /* RegistrationModule */,
 			);
 			path = AuntificationModule;

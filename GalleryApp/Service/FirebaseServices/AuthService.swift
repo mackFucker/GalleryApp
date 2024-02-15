@@ -15,52 +15,60 @@ final class AuthService {
     
     private init() {}
     
-    func signUp(_ data: RegistrationField,
-                complition: @escaping (AuthResponce) -> ()) {
-        
-        Auth.auth().createUser(withEmail: data.email,
-                               password: data.password) { [self] result, error in
-            if let error = error as? NSError {
-                complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
-            }
-            else {
-                if result != nil {
-                    let user = result!.user
-                    dbService.setupUser(user) { resultDB in
-                        switch resultDB {
-                        case .success(let user):
-                            complition(.success(result!.user))
-                            print(user)
-                        case .failure(_):
-                            print("failture create user in DB")
-                        }
-                    }
+    func signUp(_ data: RegistrationField) async throws {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: data.email,
+                                                          password: data.password)
+            let user = result.user
+            dbService.setupUser(user) { resultDB in
+                switch resultDB {
+                case .success(let user):
+                    print(user)
+                case .failure(_):
+                    print("failture create user in DB")
                 }
             }
+        } catch {
+            throw error
         }
     }
     
-    func signIn(_ data: RegistrationField,
-                complition: @escaping (AuthResponce) -> ()) {
-        
-        Auth.auth().signIn(withEmail: data.email,
-                           password: data.password) { result, error in
-            if let error = error as? NSError {
-                complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
-                print(error.code)
+    func signIn(_ data: RegistrationField) async throws -> User {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: data.email,
+                                                      password: data.password)
+            if result.user.isEmailVerified {
+                return result.user
+            } else {
+                self.confirmEmail()
+                throw AuthErrorCode(.unverifiedEmail)
             }
-            else {
-                if let result = result {
-                    if result.user.isEmailVerified {
-                        complition(.success(result.user))
-                    } else {
-                        complition(.error(AuthErrorCode.Code(rawValue: 17086)!))
-                        self.confirmEmail()
-                    }
-                }
-            }
+        } catch {
+            throw error
         }
     }
+    //
+    //    func signIn(_ data: RegistrationField,
+    //                complition: @escaping (AuthResponce) -> ()) {
+    //
+    //        Auth.auth().signIn(withEmail: data.email,
+    //                           password: data.password) { result, error in
+    //            if let error = error as? NSError {
+    //                complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
+    //                print(error.code)
+    //            }
+    //            else {
+    //                if let result = result {
+    //                    if result.user.isEmailVerified {
+    //                        complition(.success(result.user))
+    //                    } else {
+    //                        complition(.error(AuthErrorCode.Code(rawValue: 17086)!))
+    //                        self.confirmEmail()
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
     
     func signOut(complition: @escaping (AuthResponce) -> ()) {
         do {
@@ -68,7 +76,7 @@ final class AuthService {
             //            complition(.success)
         } catch {
             print("Sign out error")
-//            complition(.error(AuthErrorCode.Code(rawValue: 17094)!))
+            //            complition(.error(AuthErrorCode.Code(rawValue: 17094)!))
         }
     }
     

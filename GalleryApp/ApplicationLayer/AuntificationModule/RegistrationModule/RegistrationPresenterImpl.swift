@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol RegistrationPresenter: AnyObject {
     func signup(data: RegistrationField)
@@ -15,7 +16,7 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
     private let service: AuthService
     private let coordinator: AuthCoordinator
     private weak var view: RegistrationViewController?
-
+    
     init(view: RegistrationViewController,
          service: AuthService,
          coordinator: AuthCoordinator) {
@@ -25,13 +26,15 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
     }
     
     func signup(data: RegistrationField) {
-        service.signUp(data) { result in
-            switch result {
-                case .success(let user):
+        Task {
+            do {
+                try await service.signUp(data)
                 self.view?.showAlert(title: "Success registration",
                                      error: "U need to confirm email, and sign in")
-                case .error(let error):
-                    switch error {
+            }
+            catch {
+                if let errCode = AuthErrorCode.Code(rawValue: error._code) {
+                    switch errCode {
                         case .emailAlreadyInUse:
                             self.view?.showAlert(title: "Error",
                                                  error: "Email already in use.")
@@ -54,6 +57,7 @@ final class RegistrationPresenterImpl: RegistrationPresenter {
                             self.view?.showAlert(title: "Error",
                                                  error: "Unknown error")
                     }
+                }
             }
         }
     }

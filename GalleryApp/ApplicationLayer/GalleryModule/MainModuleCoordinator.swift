@@ -41,7 +41,7 @@ final class MainModuleCoordinatorImpl: MainModuleCoordinator {
                                                       service: StorageService.share,
                                                       coordinator: self)
         view.presenter = presenter
-        navigationController.pushViewController(view,
-                                                animated: true)
+        self.navigationController.pushViewController(view,
+                                                    animated: true)
     }
 } 
