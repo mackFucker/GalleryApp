@@ -5,8 +5,8 @@
 //  Created by дэвид Кихтенко on 15.11.2023.
 //
 
-import Foundation
 import UIKit
+import FirebaseAuth
 
 protocol GalleryAllPhotosPresenter: AnyObject {
     init(view: GalleryAllPhotosViewController,
@@ -14,8 +14,8 @@ protocol GalleryAllPhotosPresenter: AnyObject {
          service: StorageService,
          coordinator: MainModuleCoordinator)
     func uploadToTheStorage(_ image: UIImage) async
-    func downloadFromTheStorage() async -> [UIImage]
-    func openToFullScreen(data: [UIImage],
+    func downloadFromTheStorage() async -> [Photo]
+    func openToFullScreen(data: [Photo],
                           index: Int)
 }
 
@@ -38,7 +38,7 @@ final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
         self.coordinator = coordinator
     }
     
-    func openToFullScreen(data: [UIImage],
+    func openToFullScreen(data: [Photo],
                           index: Int) {
         coordinator.pushToFullScreen(data: data,
                                      index: index)
@@ -46,12 +46,12 @@ final class GalleryAllPhotosPresenterImpl: GalleryAllPhotosPresenter {
     
     func uploadToTheStorage(_ image: UIImage) async {
         await service.uploadToTheStorage(user: user,
-                                   photo: Photo(),
+                                         photo: Photo(reviewer: Auth.auth().currentUser?.email ?? ""),
                                    image: image)
     }
     
-    func downloadFromTheStorage() async -> [UIImage] {
-        var data = [UIImage]()
+    func downloadFromTheStorage() async -> [Photo] {
+        var data = [Photo]()
         do {
             print("succeeded download")
             data = try await service.downloadFormDataBase(user: user)

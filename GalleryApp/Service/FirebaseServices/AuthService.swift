@@ -47,28 +47,6 @@ final class AuthService {
             throw error
         }
     }
-    //
-    //    func signIn(_ data: RegistrationField,
-    //                complition: @escaping (AuthResponce) -> ()) {
-    //
-    //        Auth.auth().signIn(withEmail: data.email,
-    //                           password: data.password) { result, error in
-    //            if let error = error as? NSError {
-    //                complition(.error(AuthErrorCode.Code(rawValue: error.code)!))
-    //                print(error.code)
-    //            }
-    //            else {
-    //                if let result = result {
-    //                    if result.user.isEmailVerified {
-    //                        complition(.success(result.user))
-    //                    } else {
-    //                        complition(.error(AuthErrorCode.Code(rawValue: 17086)!))
-    //                        self.confirmEmail()
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
     
     func signOut(complition: @escaping (AuthResponce) -> ()) {
         do {

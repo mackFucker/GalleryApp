@@ -28,7 +28,7 @@ final class AllPhotosCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupPhoto(_ photo: UIImage) {
-        imageView.image = photo
+    func setupPhoto(_ photo: Photo) {
+        imageView.setImage(url: photo.imageURlString)
     }
 }

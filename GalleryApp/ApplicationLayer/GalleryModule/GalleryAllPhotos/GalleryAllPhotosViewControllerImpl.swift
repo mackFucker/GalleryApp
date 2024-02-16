@@ -13,7 +13,7 @@ protocol GalleryAllPhotosViewController: AnyObject {
 }
 
 final class GalleryAllPhotosViewControllerImpl: UIViewController {
-    private var dataArr = [UIImage]()
+    private var dataArr = [Photo]()
     var presenter: GalleryAllPhotosPresenter!
     
     override func viewDidLoad() {
@@ -94,7 +94,8 @@ final class GalleryAllPhotosViewControllerImpl: UIViewController {
 extension GalleryAllPhotosViewControllerImpl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        presenter.openToFullScreen(data: dataArr, index: indexPath.row)
+        presenter.openToFullScreen(data: dataArr,
+                                   index: indexPath.row)
     }
 }
 

@@ -38,8 +38,8 @@ final class FullScreenPhotoCell: UICollectionViewCell {
         return imageView
     }()
     
-    func setupPhoto(_ photo: UIImage) {
-        imageView.image = photo
+    func setupPhoto(_ photo: Photo) {
+        imageView.setImage(url: photo.imageURlString)
     }
     
     private func setup() {

@@ -13,11 +13,15 @@ struct Photo: Identifiable, Codable {
     @DocumentID var id: String?
     var imageURlString = ""
     var description = ""
-    var reviewer = Auth.auth().currentUser?.email ?? ""
+    var reviewer: String
     var postedOn = Date()
-
-    init(){}
-    init(imageURlString: String,
+    
+    init(reviewer: String){
+        self.reviewer = reviewer
+    }
+    
+    init(id: String?,
+         imageURlString: String,
          description: String,
          reviewer: String,
          postedOn: Date) {

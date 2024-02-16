@@ -18,53 +18,24 @@ final class StorageService {
     private let db = Firestore.firestore()
     private init () { }
     
-        func downloadFromTheStorage(user: User) async throws -> [UIImage] {
-            let userID = user.uid
-            let storageRef = storage.reference().child(userID)
-            var outputImages = [UIImage]()
-    
-            let result = try await storageRef.listAll()
-            let images = result.items
-    
-            for image in images {
-                do {
-                    let downloadURL = try await image.downloadURL()
-                    print(downloadURL)
-                    if let data = try? Data(contentsOf: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/guarddisk-19f6a.appspot.com/o/ojB13C2S8Zf1l96WQsoJg70ys973%2FF2EE2ACA-4CDB-4E33-96FD-181DAB69CAA7.jpeg?alt=media&token=7fb19aab-3413-417a-9c73-caa855d82021")!),
-                       let image = UIImage(data: data) {
-                        outputImages.append(image)
-                    }
-                }
-                catch {
-                    print("ERROR: download error")
-                }
-            }
-            return outputImages
-        }
-    
-    func downloadFormDataBase(user: User) async throws -> [UIImage] {
+    func downloadFormDataBase(user: User) async throws -> [Photo] {
         let userID = user.uid
         let collectionString = "spots/\(userID)/photos"
         let docRef = db.collection(collectionString)
         let documents = try await docRef.getDocuments().documents
         
-        var outputImages = [UIImage]()
         var photoModels = [Photo]()
         
         for doc in documents {
             if doc.exists {
                 let dataDictionary = doc.data()
-                let photoData = Photo(imageURlString: dataDictionary["imageURlSTring"] as! String,
+                let photoData = Photo(id: dataDictionary["id"] as? String,
+                                      imageURlString: dataDictionary["imageURlSTring"] as! String,
                                       description: dataDictionary["description"] as! String,
                                       reviewer: dataDictionary["reviewer"] as! String,
                                       postedOn: Date())
                                 
                 photoModels.append(photoData)
-                outputImages.append(UIImage(data: try Data(contentsOf: URL(string: photoData.imageURlString)!))!)
-//                if let data = try? Data(contentsOf: URL(string: photoData.imageURlString)!) {
-//                    print(photoData.imageURlString)
-//                }
-                
                 //            FIXME: remove date hardcode and async throws???
             }
             else {
@@ -72,7 +43,7 @@ final class StorageService {
             }
         }
         
-        return outputImages
+        return photoModels
     }
     
     func uploadToTheStorage(user: User,

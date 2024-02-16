@@ -8,13 +8,13 @@
 import UIKit
 
 final class GalleryFullScreenViewControllerImpl: UIViewController {
-    var data: [UIImage] = []
+    var data: [Photo] = []
     
-    init(mockDataArray: [UIImage],
+    init(data: [Photo],
          index: Int) {
         super.init(nibName: nil, bundle: nil)
         
-        self.data = mockDataArray
+        self.data = data
         let CGFloatIndex = CGFloat(index)
         
         let widht = view.frame.width

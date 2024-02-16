@@ -16,7 +16,8 @@ final class CheckField {
     private let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     private let passwordRegex = "(?=.*[A-Z0-9a-z]).{6,}"
 
-    private func isValid(type: FieldType, data: String) -> Bool {
+    private func isValid(type: FieldType,
+                         data: String) -> Bool {
         let dataRegex: String
 
         switch type {
@@ -28,7 +29,8 @@ final class CheckField {
             dataRegex = ""
         }
 
-        let dataPredicate = NSPredicate(format: "SELF MATCHES %@", dataRegex)
+        let dataPredicate = NSPredicate(format: "SELF MATCHES %@",
+                                        dataRegex)
         return dataPredicate.evaluate(with: data)
     }
 
@@ -37,28 +39,40 @@ final class CheckField {
         let fieldValue = field.text ?? ""
 
         switch fieldType {
-        case .username, .generic:
-            validateGenericField(field, value: fieldValue, minLength: 3)
+            case .username, .generic:
+                validateGenericField(field,
+                                     value: fieldValue,
+                                     minLength: 3)
 
-        case .login, .email:
-            validateSpecificField(field, value: fieldValue, type: .email)
+            case .login, .email:
+                validateSpecificField(field,
+                                      value: fieldValue,
+                                      type: .email)
 
-        case .password, .confirmPassword:
-            validateSpecificField(field, value: fieldValue, type: .password)
+            case .password,
+                .confirmPassword:
+                validateSpecificField(field,
+                                      value: fieldValue,
+                                      type: .password)
         }
     }
 
-    private func validateGenericField(_ field: UITextField, value: String, minLength: Int) {
+    private func validateGenericField(_ field: UITextField,
+                                      value: String,
+                                      minLength: Int) {
         let isValid = value.count >= minLength
         validView(field, isValid)
     }
 
-    private func validateSpecificField(_ field: UITextField, value: String, type: FieldType) {
+    private func validateSpecificField(_ field: UITextField,
+                                       value: String,
+                                       type: FieldType) {
         let isValid = isValid(type: type, data: value)
         validView(field, isValid)
     }
 
-    private func validView(_ field: UITextField, _ valid: Bool) {
+    private func validView(_ field: UITextField,
+                           _ valid: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0.2) {
             if field.text!.count > 3 {
                 field.backgroundColor = valid ? .softGreen : .warmPink

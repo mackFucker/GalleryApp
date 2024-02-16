@@ -40,6 +40,7 @@
 		8F5DFFC82B536D9F00250C8B /* GalleryAllPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFFA52B536D9F00250C8B /* GalleryAllPhotosModel.swift */; };
 		8F5DFFC92B536D9F00250C8B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFFA72B536D9F00250C8B /* AppCoordinator.swift */; };
 		8F5DFFCA2B536D9F00250C8B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DFFA82B536D9F00250C8B /* Coordinator.swift */; };
+		8F66D0E02B7F625C00FCAFB6 /* UIImageView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D0DF2B7F625C00FCAFB6 /* UIImageView +.swift */; };
 		8FA55FB12AFD00EA007FEF74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA55FB02AFD00EA007FEF74 /* AppDelegate.swift */; };
 		8FA55FB32AFD00EA007FEF74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */; };
 		8FA55FBA2AFD00EB007FEF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA55FB92AFD00EB007FEF74 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		8F5DFFA52B536D9F00250C8B /* GalleryAllPhotosModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAllPhotosModel.swift; sourceTree = "<group>"; };
 		8F5DFFA72B536D9F00250C8B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8F5DFFA82B536D9F00250C8B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8F66D0DF2B7F625C00FCAFB6 /* UIImageView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView +.swift"; sourceTree = "<group>"; };
 		8FA55FAD2AFD00EA007FEF74 /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA55FB02AFD00EA007FEF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FA55FB22AFD00EA007FEF74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				8F5DFF832B536D9F00250C8B /* UIColor + .swift */,
 				8F5DFF842B536D9F00250C8B /* UIVIew + .swift */,
 				8F5B3B592B540C78000AFB45 /* FirebaseAuthUser +.swift */,
+				8F66D0DF2B7F625C00FCAFB6 /* UIImageView +.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				8F5DFFB92B536D9F00250C8B /* AuthService.swift in Sources */,
 				8F5DFFC42B536D9F00250C8B /* FullScreenPhotoCell.swift in Sources */,
 				8F5DFFAE2B536D9F00250C8B /* UITextFieldAuth.swift in Sources */,
+				8F66D0E02B7F625C00FCAFB6 /* UIImageView +.swift in Sources */,
 				8F5DFFBA2B536D9F00250C8B /* DatabaseService.swift in Sources */,
 				8F5DFFBE2B536D9F00250C8B /* AuthModuleCoordinator.swift in Sources */,
 				8F5DFFAF2B536D9F00250C8B /* UIlogoLabel.swift in Sources */,
